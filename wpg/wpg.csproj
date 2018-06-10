@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="builder\" />
+    <Folder Include="connection\" />
+    <Folder Include="domain\" />
+    <Folder Include="exception\" />
+    <Folder Include="internal\" />
+    <Folder Include="request\" />
+    <Folder Include="connection\auth\" />
+    <Folder Include="request\card\" />
+    <Folder Include="internal\xml\" />
+    <Folder Include="domain\tokenisation\" />
+    <Folder Include="domain\card\" />
+    <Folder Include="domain\payment\" />
+    <Folder Include="domain\payment\result\" />
+    <Folder Include="domain\payment\threeds\" />
+    <Folder Include="connection\http\" />
+    <Folder Include="internal\xml\serializer\" />
+    <Folder Include="internal\xml\serializer\payment\" />
+    <Folder Include="internal\xml\serializer\payment\tokenisation\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpg", "wpg\wpg.csproj", "{8C5A519A-8847-4A01-8F76-6EE647DA3B01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpg-examples", "wpg-examples\wpg-examples.csproj", "{148BE519-066F-4CA7-971B-6BBA38D02DE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C5A519A-8847-4A01-8F76-6EE647DA3B01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C5A519A-8847-4A01-8F76-6EE647DA3B01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C5A519A-8847-4A01-8F76-6EE647DA3B01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C5A519A-8847-4A01-8F76-6EE647DA3B01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{148BE519-066F-4CA7-971B-6BBA38D02DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{148BE519-066F-4CA7-971B-6BBA38D02DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{148BE519-066F-4CA7-971B-6BBA38D02DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{148BE519-066F-4CA7-971B-6BBA38D02DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
