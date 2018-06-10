@@ -12,7 +12,12 @@ namespace wpg.@internal.xml.serializer
             long value = builder.aToLong("value");
 
             String rawDebitCreditIndicator = builder.a("debitCreditIndicator");
-            DebitCreditIndicator? debitCreditIndicator = rawDebitCreditIndicator != null ? (DebitCreditIndicator?) Enum.Parse(typeof(DebitCreditIndicator), rawDebitCreditIndicator) : null;
+            DebitCreditIndicator? debitCreditIndicator = null;
+            try
+            {
+                debitCreditIndicator = (rawDebitCreditIndicator != null ? (DebitCreditIndicator?) Enum.Parse(typeof(DebitCreditIndicator), rawDebitCreditIndicator, true) : null);
+            }
+            catch (ArgumentException) { }
 
             Amount amount = new Amount(currencyCode, exponent, value, debitCreditIndicator);
             return amount;

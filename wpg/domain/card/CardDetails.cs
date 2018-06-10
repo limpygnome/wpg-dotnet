@@ -1,5 +1,5 @@
 ﻿using System;
-namespace wpg.domain
+namespace wpg.domain.card
 {
     public class CardDetails
     {

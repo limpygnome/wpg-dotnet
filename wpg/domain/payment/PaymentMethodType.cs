@@ -1,7 +1,7 @@
 ﻿using System;
 namespace wpg.domain.payment
 {
-    public enum PaymentMethod
+    public enum PaymentMethodType
     {
         CARD,
         VISA,

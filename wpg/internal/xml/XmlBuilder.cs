@@ -6,27 +6,30 @@ namespace wpg.@internal.xml
 {
     public class XmlBuilder
     {
-        private XmlEndpoint endpoint;
         private XDocument document;
         private XElement current;
 
         private XmlBuilder(XmlEndpoint endpoint, XDocument document, XElement current)
         {
-            this.endpoint = endpoint;
+            this.Endpoint = endpoint;
             this.document = document;
             this.current = current;
         }
 
         public XmlBuilder(XmlEndpoint endpoint)
         {
-            this.endpoint = endpoint;
+            this.Endpoint = endpoint;
             this.document = new XDocument(new XElement(endpoint.RootElement));
 
+            // Add doctype
             XDocumentType documentType = new XDocumentType(endpoint.RootElement, endpoint.DocTypePublicId, endpoint.DocTypeSystemId, null);
             this.document.AddFirst(documentType);
+
             this.current = this.document.Root;
             current.SetAttributeValue("version", endpoint.Version);
         }
+
+        public XmlEndpoint Endpoint { get; private set; }
 
         public XmlBuilder a(String key, String value)
         {
@@ -42,7 +45,7 @@ namespace wpg.@internal.xml
 
         public String a(String key)
         {
-            String value = current.Attribute(key).ToString();
+            String value = current.Attribute(key).Value;
             if (value.Length == 0)
             {
                 value = null;
@@ -128,7 +131,13 @@ namespace wpg.@internal.xml
 
         public bool hasE(String name)
         {
-            return current.Element(name) != null;
+            XElement element = current.Element(name);
+            if (element != null)
+            {
+                current = element;
+                return true;
+            }
+            return false;
         }
 
         public XmlBuilder cdata(String value)
@@ -172,7 +181,12 @@ namespace wpg.@internal.xml
             {
                 XNode node = element.FirstNode;
 
-                if (node is XCData)
+                if (node is XText)
+                {
+                    XText nodeText = (XText)node;
+                    result = nodeText.Value;
+                }
+                else if (node is XCData)
                 {
                     XCData nodeCdata = (XCData)node;
                     result = nodeCdata.Value;
@@ -217,7 +231,7 @@ namespace wpg.@internal.xml
             List<XmlBuilder> result = new List<XmlBuilder>();
             foreach (XElement element in current.Elements())
             {
-                XmlBuilder clone = new XmlBuilder(endpoint, document, element);
+                XmlBuilder clone = new XmlBuilder(Endpoint, document, element);
                 result.Add(clone);
             }
             return result;
@@ -232,18 +246,24 @@ namespace wpg.@internal.xml
         {
             XmlBuilder result = null;
             ICollection<XElement> elements = current.Elements().Descendants(elementName) as ICollection<XElement>;
-            IEnumerator<XElement> it = elements.GetEnumerator();
-            if (it.MoveNext())
+
+            if (elements != null)
             {
-                XElement first = it.Current;
-                result = new XmlBuilder(endpoint, document, first);
+                IEnumerator<XElement> it = elements.GetEnumerator();
+                if (it.MoveNext())
+                {
+                    XElement first = it.Current;
+                    result = new XmlBuilder(Endpoint, document, first);
+                }
             }
             return result;
         }
 
         public override String ToString()
         {
-            return document.ToString();
+            // Manually add declaration / encoding
+            String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + document.ToString(SaveOptions.DisableFormatting);
+            return xml;
         }
 
         public static XmlBuilder parse(XmlEndpoint endpoint, String text)
@@ -260,12 +280,12 @@ namespace wpg.@internal.xml
                 XElement root = builder.current;
                 if ("html" == root.Name)
                 {
-                    throw new WpgMalformedXmlException(text);
+                    throw new WpgMalformedException("Parsed HTML rather than XML", text);
                 }
             }
             catch (Exception e)
             {
-                throw new WpgMalformedXmlException(text, e);
+                throw new WpgMalformedException("Unable to parse XML", text, e);
             }
             return builder;
         }

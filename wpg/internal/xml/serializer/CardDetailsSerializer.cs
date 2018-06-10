@@ -1,5 +1,7 @@
 ﻿using System;
 using wpg.domain;
+using wpg.domain.card;
+
 namespace wpg.@internal.xml.serializer
 {
     public class CardDetailsSerializer

@@ -1,8 +1,11 @@
 ﻿using System;
 using wpg.domain;
+using wpg.domain.card;
 using wpg.domain.payment;
 using wpg.domain.tokenisation;
+using wpg.@internal.validation;
 using wpg.@internal.xml;
+using wpg.@internal.xml.adapter;
 using wpg.@internal.xml.serializer;
 using wpg.@internal.xml.serializer.payment.tokenisation;
 
@@ -49,7 +52,15 @@ namespace wpg.request.card
 
         protected override void Validate(XmlBuildParams buildParams)
         {
-            // TODO add
+            Assert.notNull(OrderDetails, "Order details are mandatory");
+            Assert.notNull(CardDetails, "Card details are mandatory");
+
+            // Shopper tokens always require shopper to be present
+            if (CreateTokenDetails != null && TokenScope.SHOPPER == CreateTokenDetails.Scope)
+            {
+                Assert.notNull(Shopper, "Shopper is required for tokenised payments");
+                Assert.notEmpty(Shopper.ShopperId, "Shopper ID is required for tokenised payments");
+            }
         }
 
         protected override void Build(XmlBuildParams buildParams)
@@ -63,9 +74,11 @@ namespace wpg.request.card
             OrderDetailsSerializer.decorateFinishOrder(buildParams);
         }
 
-        protected override PaymentResponse Adapt()
+        protected override PaymentResponse Adapt(XmlResponse response)
         {
-            return null;
+            PaymentResponseXmlAdapter adapter = new PaymentResponseXmlAdapter();
+            PaymentResponse result = adapter.read(response);
+            return result;
         }
 
     }

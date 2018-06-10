@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using wpg.connection;
+using wpg.@internal.xml.adapter;
+
 namespace wpg.@internal.xml
 {
     public abstract class XmlRequest<T>
@@ -23,12 +25,14 @@ namespace wpg.@internal.xml
             Build(buildParams);
 
             // Send
-            String xml = buildParams.Builder.ToString();
+            XmlClient client = new XmlClient();
+            XmlResponse response = await client.send(buildParams);
 
             // Check for errors
+            ErrorCodeAdapter.throwIfPresent(response);
 
             // Translate/adapt
-            T result = Adapt();
+            T result = Adapt(response);
             return result;
         }
 
@@ -36,7 +40,7 @@ namespace wpg.@internal.xml
 
         protected abstract void Build(XmlBuildParams buildParams);
 
-        protected abstract T Adapt();
+        protected abstract T Adapt(XmlResponse response);
 
         protected XmlEndpoint GetEndpoint()
         {

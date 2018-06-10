@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFramework>netstandard1.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,5 +23,16 @@
     <Folder Include="internal\xml\serializer\" />
     <Folder Include="internal\xml\serializer\payment\" />
     <Folder Include="internal\xml\serializer\payment\tokenisation\" />
+    <Folder Include="internal\xml\adapter\" />
+    <Folder Include="internal\xml\serializer\payment\threeds\" />
+    <Folder Include="domain\shopper\" />
+    <Folder Include="internal\xml\serializer\payment\result\" />
+    <Folder Include="internal\validation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http" Version="4.3.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
   </ItemGroup>
 </Project>

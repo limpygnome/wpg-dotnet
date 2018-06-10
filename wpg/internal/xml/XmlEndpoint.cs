@@ -1,4 +1,6 @@
 ﻿using System;
+using wpg.connection;
+
 namespace wpg.@internal.xml
 {
     public class XmlEndpoint
@@ -37,6 +39,25 @@ namespace wpg.@internal.xml
         public String Version { get; private set; }
         public String SandboxUrl { get; private set; }
         public String ProductionUrl { get; private set; }
+
+        public Uri GetUri(GatewayEnvironment environment)
+        {
+            Uri uri;
+
+            switch (environment)
+            {
+                case GatewayEnvironment.PRODUCTION:
+                    uri = new Uri(ProductionUrl);
+                    break;
+                case GatewayEnvironment.SANDBOX:
+                    uri = new Uri(SandboxUrl);
+                    break;
+                default:
+                    throw new ArgumentException("Unknown gateway environment: " + environment.ToString());
+            }
+
+            return uri;
+        }
 
     }
 }
