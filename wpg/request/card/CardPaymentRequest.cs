@@ -43,9 +43,14 @@ namespace wpg.request.card
             this.CreateTokenDetails = createTokenDetails;
         }
 
+        // Mandatory
         public OrderDetails OrderDetails { get; set; }
         public CardDetails CardDetails { get; set; }
+
+        // Partially mandatory
         public Shopper Shopper { get; set; }
+
+        // Optional
         public Address BillingAddress { get; set; }
         public Address ShippingAddress { get; set; }
         public CreateTokenDetails CreateTokenDetails { get; set; }

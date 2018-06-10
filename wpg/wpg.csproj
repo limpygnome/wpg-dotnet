@@ -28,6 +28,10 @@
     <Folder Include="domain\shopper\" />
     <Folder Include="internal\xml\serializer\payment\result\" />
     <Folder Include="internal\validation\" />
+    <Folder Include="request\apm\" />
+    <Folder Include="request\hosted\" />
+    <Folder Include="request\threeds\" />
+    <Folder Include="domain\redirect\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Net.Http" Version="4.3.3" />

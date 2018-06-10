@@ -17,13 +17,18 @@
 </p>
 
 ## Features
-- Card payments (includes tokenisation)
+- Payments
+  - Cards
+  - Tokenised cards
+  - ThreeDS authentication
+  - Hosted Payment Pages
+  - PayPal
 
 ## Examples
 - [Examples](wpg-examples)
 
 ## Getting Started
-Download the binary from the [releases](../releases) page, or use NuGet.
+Download the binary from the [releases](../../releases) page, or use NuGet.
 
 Command line:
 
