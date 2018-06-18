@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using wpg.connection;
@@ -8,29 +9,69 @@ using wpg.domain.card;
 using wpg.domain.payment;
 using wpg.request.card;
 
-namespace wpg_examples
+namespace wpgexamples
 {
     class Program
     {
 
         static void Main(string[] args)
         {
-            IAuth auth = new UserPassAuth("xml user", "xml pass", "merchant code");
-            GatewayContext gatewayContext = new GatewayContext(GatewayEnvironment.SANDBOX, auth);
+            string xmlUser = args.Length >= 1 ? args[0] : null;
+            string xmlPass = args.Length >= 2 ? args[1] : null;
+            string merchantCode = args.Length >= 3 ? args[2] : null;
 
-            Address address = new Address("test road", "Cambridge", "CB0123", "GB");
+            if (xmlUser == null || xmlPass == null || merchantCode == null)
+            {
+                Console.WriteLine("Run again with three args: <xmlUser> <xmlPass> <merchantCode>");
+            }
+            else
+            {
 
-            CardPaymentRequest request = new CardPaymentRequest();
-            request.OrderDetails = new OrderDetails("test order", new Amount("GBP", 2L, 1234L));
-            request.CardDetails = new CardDetails("4444333322221129", 1, 2020, "John Doe");
-            request.BillingAddress = address;
-            request.ShippingAddress = address;
+                Dictionary<string, DemoApp> apps = new Dictionary<string, DemoApp>();
+                apps.Add("card", new CardDemoProgram());
+                apps.Add("card-advanced", new CardAdvancedDemoProgram());
+                apps.Add("card-tokenisation", new CardTokenisationDemoProgram());
+                apps.Add("hpp", new ThreeDsDemoApp());
+                apps.Add("paypal", new PayPalDemoProgram());
+                apps.Add("paypal-advanced", new PayPalAdvancedDemoProgram());
+                apps.Add("paypal-tokenisation", new PayPalTokenisationDemoProgram());
+                apps.Add("threeds", new ThreeDsDemoApp());
 
-            Task<PaymentResponse> asyncResponse = request.Send(gatewayContext);
-            PaymentResponse response = asyncResponse.Result;
+                bool running = true;
 
-            Console.WriteLine("Hello World!");
+                do
+                {
+                    Console.WriteLine("Availalble apps:");
+                    foreach (var kv in apps)
+                    {
+                        Console.WriteLine("- " + kv.Key);
+                    }
+                    Console.WriteLine("");
+                    Console.WriteLine("Type 'quit' to exit.");
+                    Console.WriteLine("");
+                    Console.WriteLine("Which app do you want to run?");
+
+                    string app = Console.ReadLine() ?? "";
+                    if (app == "quit")
+                    {
+                        running = false;
+                    }
+                    else if (!apps.ContainsKey(app))
+                    {
+                        Console.WriteLine("Unknown app '" + app + "'");
+                    }
+                    else
+                    {
+                        DemoApp obj = apps[app];
+                        obj.Run(xmlUser, xmlPass, merchantCode);
+                        Console.WriteLine("Finsihed.");
+                    }
+                }
+                while (running);
+
+                Console.WriteLine("Bye!");
+            }
         }
-
     }
+
 }

@@ -7,9 +7,9 @@ namespace wpg.domain
     {
         private const int ID_MAX_LEN = 32;
 
-        public OrderDetails(String description, Amount amount) : this(null, description, amount) { }
+        public OrderDetails(string description, Amount amount) : this(null, description, amount) { }
 
-        public OrderDetails(String orderCode, String description, Amount amount)
+        public OrderDetails(string orderCode, string description, Amount amount)
         {
             this.OrderCode = orderCode;
             this.Description = description;
@@ -21,8 +21,8 @@ namespace wpg.domain
             }
         }
 
-        public String OrderCode { get; set; }
-        public String Description { get; set; }
+        public string OrderCode { get; set; }
+        public string Description { get; set; }
         public Amount Amount { get; set; }
 
     }

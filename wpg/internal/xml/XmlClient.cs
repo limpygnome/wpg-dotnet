@@ -44,16 +44,16 @@ namespace wpg.@internal.xml
             HttpResponse response = await transform(buildParams.SessionContext, rawResponse);
 
             // Check respone for gateway errors
-            MatchCollection matches = Regex.Matches(response.Body, "(?:.+)<p>([^<]+)(?:.+)", RegexOptions.Multiline);
+            MatchCollection matches = Regex.Matches(response.Body, "(?:<p>)([^<]+)", RegexOptions.Multiline);
             if (matches.Count > 0)
             {
-                String pageError = matches[0].Value;
+                String pageError = matches[0].Value.Trim();
                 throw new WpgRequestException("Failed to make request - message from gateway: " + pageError);
             }
 
             // Convert to xml response
             XmlBuilder responseBuilder = XmlBuilder.parse(buildParams.Builder.Endpoint, response.Body);
-            XmlResponse xmlResponse = new XmlResponse(response, responseBuilder);
+            XmlResponse xmlResponse = new XmlResponse(buildParams.SessionContext, response, responseBuilder);
             return xmlResponse;
         }
 

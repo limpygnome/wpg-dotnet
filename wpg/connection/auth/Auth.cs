@@ -1,7 +1,7 @@
 ﻿using System;
 namespace wpg.connection.auth
 {
-    public interface IAuth
+    public interface Auth
     {
     }
 }

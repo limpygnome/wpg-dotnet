@@ -8,15 +8,15 @@ namespace wpg.domain.tokenisation
         {
         }
 
-        public CreateTokenDetails(String eventReference, String reason) : this(null, eventReference, reason, 0, null) { }
+        public CreateTokenDetails(string eventReference, string reason) : this(null, eventReference, reason, null, null) { }
 
-        public CreateTokenDetails(TokenScope? scope, String eventReference, String reason) : this(scope, eventReference, reason, null, null) { }
+        public CreateTokenDetails(TokenScope? scope, string eventReference, string reason) : this(scope, eventReference, reason, null, null) { }
 
-        public CreateTokenDetails(TokenScope? scope, String eventReference, String reason, DateTime? expiry) : this(scope, eventReference, reason, 0, expiry) { }
+        public CreateTokenDetails(TokenScope? scope, string eventReference, string reason, DateTime? expiry) : this(scope, eventReference, reason, null, expiry) { }
 
-        public CreateTokenDetails(TokenScope? scope, String eventReference, String reason, int? shortLifeMins) : this(scope, eventReference, reason, shortLifeMins, null) { }
+        public CreateTokenDetails(TokenScope? scope, string eventReference, string reason, int? shortLifeMins) : this(scope, eventReference, reason, shortLifeMins, null) { }
 
-        private CreateTokenDetails(TokenScope? scope, String eventReference, String reason, int? shortLifeMins, DateTime? expiry)
+        private CreateTokenDetails(TokenScope? scope, string eventReference, string reason, int? shortLifeMins, DateTime? expiry)
         {
             this.Scope = scope ?? TokenScope.SHOPPER;
             this.EventReference = eventReference;

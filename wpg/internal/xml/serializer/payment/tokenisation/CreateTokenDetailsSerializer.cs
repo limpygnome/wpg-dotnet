@@ -16,7 +16,7 @@ namespace wpg.@internal.xml.serializer.payment.tokenisation
                 builder.e("tokenEventReference").cdata(createTokenDetails.EventReference).up();
                 builder.e("tokenReason").cdata(createTokenDetails.Reason).up();
 
-                if (createTokenDetails.ShortLifeMins != null)
+                if (createTokenDetails.ShortLifeMins != null && createTokenDetails.ShortLifeMins > 0)
                 {
                     builder.e("shortLifeMins").cdata(createTokenDetails.ShortLifeMins.ToString());
                 }

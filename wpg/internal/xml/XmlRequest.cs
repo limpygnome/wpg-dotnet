@@ -8,7 +8,7 @@ namespace wpg.@internal.xml
     public abstract class XmlRequest<T>
     {
 
-        public Task<T> Send(GatewayContext gatewayContext)
+        public virtual Task<T> Send(GatewayContext gatewayContext)
         {
             return Send(gatewayContext, new SessionContext());
         }

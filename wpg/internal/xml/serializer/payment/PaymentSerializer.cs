@@ -14,7 +14,7 @@ namespace wpg.@internal.xml.serializer.payment
         {
             // payment method (can be null when unknown)
             string paymentMethodMask = builder.getCdata("paymentMethod");
-            PaymentMethodType? paymentMethodType = PaymentMethodSerializer.convert(paymentMethodMask);
+            PaymentMethodType? paymentMethodType = PaymentMethodTypeSerializer.convert(paymentMethodMask);
 
             // amount
             builder.e("amount");

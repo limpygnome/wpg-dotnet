@@ -45,8 +45,9 @@ namespace wpg.@internal.xml
 
         public String a(String key)
         {
-            String value = current.Attribute(key).Value;
-            if (value.Length == 0)
+            var element = current.Attribute(key);
+            String value = element != null ? current.Attribute(key).Value : null;
+            if (value != null && value.Length == 0)
             {
                 value = null;
             }
@@ -163,7 +164,12 @@ namespace wpg.@internal.xml
             String result = null;
             XNode node = current.FirstNode;
 
-            if (node is XCData)
+            if (node is XText)
+            {
+                XText nodeText = (XText)node;
+                result = nodeText.Value;
+            }
+            else if (node is XCData)
             {
                 XCData nodeCdata = (XCData)node;
                 result = nodeCdata.Value;
@@ -245,7 +251,7 @@ namespace wpg.@internal.xml
         public XmlBuilder getElementByName(String elementName)
         {
             XmlBuilder result = null;
-            ICollection<XElement> elements = current.Elements().Descendants(elementName) as ICollection<XElement>;
+            IEnumerable<XElement> elements = document.Descendants(elementName);
 
             if (elements != null)
             {

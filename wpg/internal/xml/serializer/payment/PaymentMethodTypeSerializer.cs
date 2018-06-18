@@ -3,7 +3,7 @@ using wpg.domain.payment;
 
 namespace wpg.@internal.xml.serializer.payment
 {
-    public class PaymentMethodSerializer
+    public class PaymentMethodTypeSerializer
     {
 
         public static PaymentMethodType? convert(String paymentMethodMask)

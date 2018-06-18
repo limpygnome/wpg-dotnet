@@ -15,7 +15,8 @@ namespace wpg.@internal.xml.serializer
             LinkedList<PaymentMethodType> included;
             LinkedList<PaymentMethodType> excluded;
 
-            if (filter != null)
+            bool isFilter = (filter != null);
+            if (isFilter)
             {
                 included = filter.Included;
                 excluded = filter.Excluded;
@@ -29,10 +30,10 @@ namespace wpg.@internal.xml.serializer
             // Move to correct element
             builder.e("paymentMethodMask");
 
-            bool includedEmpty = (included.Count == 0);
-            bool excludedEmpty = (excluded.Count == 0);
+            bool includedEmpty = (!isFilter || included.Count == 0);
+            bool excludedEmpty = (!isFilter || excluded.Count == 0);
 
-            if (filter == null || (includedEmpty && excludedEmpty))
+            if (includedEmpty && excludedEmpty)
             {
                 builder.e("include")
                         .a("code", "ALL")

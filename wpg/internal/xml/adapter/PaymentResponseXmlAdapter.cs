@@ -1,4 +1,5 @@
 ﻿using System;
+using wpg.connection;
 using wpg.connection.http;
 using wpg.domain.payment;
 using wpg.domain.payment.threeds;
@@ -22,7 +23,7 @@ namespace wpg.@internal.xml.adapter
             {
                 if (builder.hasE("reply") && builder.hasE("orderStatus"))
                 {
-                    result = readOrderStatus(httpResponse, builder);
+                    result = readOrderStatus(httpResponse, response.SessionContext, builder);
                 }
             }
 
@@ -34,7 +35,7 @@ namespace wpg.@internal.xml.adapter
             return result;
         }
 
-        private PaymentResponse readOrderStatus(HttpResponse httpResponse, XmlBuilder builder)
+        private PaymentResponse readOrderStatus(HttpResponse httpResponse, SessionContext sessionContext, XmlBuilder builder)
         {
             PaymentResponse result = null;
 
@@ -42,7 +43,7 @@ namespace wpg.@internal.xml.adapter
             {
                 if (builder.hasE("request3DSecure"))
                 {
-                    ThreeDsDetails threeDsDetails = ThreeDsSerializer.read(builder);
+                    ThreeDsDetails threeDsDetails = ThreeDsSerializer.read(sessionContext, builder);
                     result = new PaymentResponse(threeDsDetails);
                 }
             }

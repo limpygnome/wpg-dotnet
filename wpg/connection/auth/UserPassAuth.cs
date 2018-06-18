@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace wpg.connection.auth
 {
-    public class UserPassAuth : IAuth
+    public class UserPassAuth : Auth
     {
         public UserPassAuth(String user, String pass, String merchantCode) : this(user, pass, merchantCode, null) { }
 

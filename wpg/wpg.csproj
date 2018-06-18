@@ -32,6 +32,7 @@
     <Folder Include="request\hosted\" />
     <Folder Include="request\threeds\" />
     <Folder Include="domain\redirect\" />
+    <Folder Include="domain\apm\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Net.Http" Version="4.3.3" />

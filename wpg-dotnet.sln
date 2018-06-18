@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpg", "wpg\wpg.csproj", "{8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpg-examples", "wpg-examples\wpg-examples.csproj", "{148BE519-066F-4CA7-971B-6BBA38D02DE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpg-integration-tests", "wpg-integration-tests\wpg-integration-tests.csproj", "{8251E462-59F2-4B9D-AB8C-3D1496CAA7AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{148BE519-066F-4CA7-971B-6BBA38D02DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{148BE519-066F-4CA7-971B-6BBA38D02DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{148BE519-066F-4CA7-971B-6BBA38D02DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8251E462-59F2-4B9D-AB8C-3D1496CAA7AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8251E462-59F2-4B9D-AB8C-3D1496CAA7AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8251E462-59F2-4B9D-AB8C-3D1496CAA7AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8251E462-59F2-4B9D-AB8C-3D1496CAA7AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
