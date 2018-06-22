@@ -237,8 +237,11 @@ namespace wpg.@internal.xml
             List<XmlBuilder> result = new List<XmlBuilder>();
             foreach (XElement element in current.Elements())
             {
-                XmlBuilder clone = new XmlBuilder(Endpoint, document, element);
-                result.Add(clone);
+                if (element.Name == tagName)
+                {
+                    XmlBuilder clone = new XmlBuilder(Endpoint, document, element);
+                    result.Add(clone);
+                }
             }
             return result;
         }

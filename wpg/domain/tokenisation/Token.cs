@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace wpg.domain.tokenisation
 {
     public class Token
@@ -17,6 +19,28 @@ namespace wpg.domain.tokenisation
         public TokenDetails Details { get; set; }
         public TokenInstrument Instrument { get; set; }
         public String ShopperId { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var token = obj as Token;
+            return token != null &&
+                   PaymentTokenId == token.PaymentTokenId &&
+                   Scope == token.Scope &&
+                   EqualityComparer<TokenDetails>.Default.Equals(Details, token.Details) &&
+                   EqualityComparer<TokenInstrument>.Default.Equals(Instrument, token.Instrument) &&
+                   ShopperId == token.ShopperId;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 723027992;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(PaymentTokenId);
+            hashCode = hashCode * -1521134295 + Scope.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<TokenDetails>.Default.GetHashCode(Details);
+            hashCode = hashCode * -1521134295 + EqualityComparer<TokenInstrument>.Default.GetHashCode(Instrument);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ShopperId);
+            return hashCode;
+        }
 
     }
 }

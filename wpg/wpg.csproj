@@ -33,6 +33,8 @@
     <Folder Include="request\threeds\" />
     <Folder Include="domain\redirect\" />
     <Folder Include="domain\apm\" />
+    <Folder Include="domain\notification\" />
+    <Folder Include="domain\journal\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Net.Http" Version="4.3.3" />

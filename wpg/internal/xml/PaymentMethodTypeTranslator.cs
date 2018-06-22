@@ -71,9 +71,9 @@ namespace wpg.@internal.xml
             }
         }
 
-        public static string getMask(PaymentMethodType type)
+        public static string getMask(PaymentMethodType? type)
         {
-            String mask = pmToMask.ContainsKey(type) ? pmToMask[type] : null;
+            string mask = type != null && pmToMask.ContainsKey((PaymentMethodType) type) ? pmToMask[(PaymentMethodType) type] : null;
             return mask;
         }
 

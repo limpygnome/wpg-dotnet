@@ -19,7 +19,7 @@ namespace wpgexamples
             PayPalPaymentRequest request = new PayPalPaymentRequest();
             request.OrderDetails = new OrderDetails("test order", new Amount("GBP", 2L, 1234L));
             request.Shopper = new Shopper("shopper@worldpay.com");
-            request.setResultURLs("https://test.worldpay.com");
+            request.SetResultURLs("https://test.worldpay.com");
 
             Task<RedirectUrl> asyncResponse = request.Send(gatewayContext);
             RedirectUrl response = asyncResponse.Result;

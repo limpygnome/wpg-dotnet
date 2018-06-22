@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text;
 using System.Net;
+using wpg.domain.payment;
+using wpg.@internal.xml;
 
 namespace wpg.builder
 {
@@ -11,20 +13,37 @@ namespace wpg.builder
             this.OrderUrl = orderUrl;
         }
 
-        private string OrderUrl { get; set; }
+        public string OrderUrl { get; set; }
 
-        private string SuccessUrl { get; set; }
-        private string PendingUrl { get; set; }
-        private string FailureUrl { get; set; }
-        private string ErrorUrl { get; set; }
-        private string CancelUrl { get; set; }
-        private string PreferredPaymentMethod { get; set; }
-        private string Country { get; set; }
-        private string Language { get; set; }
+        public string SuccessUrl { get; set; }
+        public string PendingUrl { get; set; }
+        public string FailureUrl { get; set; }
+        public string ErrorUrl { get; set; }
+        public string CancelUrl { get; set; }
+        public string PreferredPaymentMethod { get; set; }
+        public string Country { get; set; }
+        public string Language { get; set; }
 
-        public String build()
+        public PaymentMethodType? PreferredPaymentMethodType
+        {
+            get
+            {
+                return PaymentMethodTypeTranslator.getType(PreferredPaymentMethod);
+            }
+            set
+            {
+                PreferredPaymentMethod = PaymentMethodTypeTranslator.getMask(value);
+            }
+        }
+
+        public string Build()
         {
             StringBuilder builder = new StringBuilder(OrderUrl);
+
+            if (String.IsNullOrWhiteSpace(OrderUrl))
+            {
+                throw new ArgumentException("Invalid order URL");
+            }
 
             if (!String.IsNullOrWhiteSpace(SuccessUrl))
             {
@@ -59,7 +78,7 @@ namespace wpg.builder
                 builder.Append("&language=").Append(encode(Language.ToLower()));
             }
 
-            String url = builder.ToString();
+            string url = builder.ToString();
             return url;
         }
         

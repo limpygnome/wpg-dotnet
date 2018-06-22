@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Net.Http;
 using wpg.connection;
 using wpg.connection.auth;
+using Xunit;
 
 namespace wpgintegrationtests
 {
-    public class BaseIntegrationTest
+    public abstract class BaseIntegrationTest
     {
         protected static readonly GatewayContext GATEWAY_CONTEXT;
+        protected static readonly HttpClient client = new HttpClient();
 
         static BaseIntegrationTest()
         {
@@ -21,6 +24,13 @@ namespace wpgintegrationtests
             }
 
             GATEWAY_CONTEXT = new GatewayContext(GatewayEnvironment.SANDBOX, new UserPassAuth(user, pass, merchantCode, installationId));
+        }
+
+        protected void assertStatusCode(string url, int expectedStatusCode)
+        {
+            var response = client.GetAsync(url).Result;
+            int statusCode = (int) response.StatusCode;
+            Assert.True(statusCode == expectedStatusCode, "Failed request assertion - expectedStatusCode=" + expectedStatusCode + ", statusCode=" + statusCode + ", url=" + url);
         }
 
     }

@@ -6,7 +6,7 @@ namespace wpg.@internal.xml.serializer.payment
     public class PaymentMethodTypeSerializer
     {
 
-        public static PaymentMethodType? convert(String paymentMethodMask)
+        public static PaymentMethodType? convert(string paymentMethodMask)
         {
             if (paymentMethodMask == null)
             {

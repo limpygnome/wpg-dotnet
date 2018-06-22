@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace wpg.domain.card
 {
     public class CardDetails
@@ -48,6 +50,32 @@ namespace wpg.domain.card
         public String CVC { get; set; }
         public Address CardHolderAddress { get; set; }
         public String EncryptedCardNumber { get; private set; }
+
+        public override bool Equals(object obj)
+        {
+            var details = obj as CardDetails;
+            return details != null &&
+                   CardNumber == details.CardNumber &&
+                   EqualityComparer<long?>.Default.Equals(ExpiryMonth, details.ExpiryMonth) &&
+                   EqualityComparer<long?>.Default.Equals(ExpiryYear, details.ExpiryYear) &&
+                   CardHolderName == details.CardHolderName &&
+                   CVC == details.CVC &&
+                   EqualityComparer<Address>.Default.Equals(CardHolderAddress, details.CardHolderAddress) &&
+                   EncryptedCardNumber == details.EncryptedCardNumber;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 766638519;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CardNumber);
+            hashCode = hashCode * -1521134295 + EqualityComparer<long?>.Default.GetHashCode(ExpiryMonth);
+            hashCode = hashCode * -1521134295 + EqualityComparer<long?>.Default.GetHashCode(ExpiryYear);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CardHolderName);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CVC);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Address>.Default.GetHashCode(CardHolderAddress);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(EncryptedCardNumber);
+            return hashCode;
+        }
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using wpg.domain.tokenisation;
 namespace wpg.domain.tokenisation
 {
@@ -30,6 +31,28 @@ namespace wpg.domain.tokenisation
         public String Reason { get; set; }
         public int? ShortLifeMins { get; set; }
         public DateTime? Expiry { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var details = obj as CreateTokenDetails;
+            return details != null &&
+                   Scope == details.Scope &&
+                   EventReference == details.EventReference &&
+                   Reason == details.Reason &&
+                   EqualityComparer<int?>.Default.Equals(ShortLifeMins, details.ShortLifeMins) &&
+                   EqualityComparer<DateTime?>.Default.Equals(Expiry, details.Expiry);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1798268540;
+            hashCode = hashCode * -1521134295 + Scope.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(EventReference);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Reason);
+            hashCode = hashCode * -1521134295 + EqualityComparer<int?>.Default.GetHashCode(ShortLifeMins);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTime?>.Default.GetHashCode(Expiry);
+            return hashCode;
+        }
 
     }
 }

@@ -29,7 +29,7 @@ namespace wpg.request.apm
         {
             this.OrderDetails = orderDetails;
             this.Shopper = shopper;
-            this.setResultURLs(resultURL);
+            this.SetResultURLs(resultURL);
         }
 
         // Mandatory
@@ -45,7 +45,7 @@ namespace wpg.request.apm
         public string LanguageCode { get; set; }
         public CreateTokenDetails CreateTokenDetails { get; set; }
 
-        public PayPalPaymentRequest setResultURLs(string resultUrl)
+        public PayPalPaymentRequest SetResultURLs(string resultUrl)
         {
             this.SuccessURL = resultUrl;
             this.FailureURL = resultUrl;

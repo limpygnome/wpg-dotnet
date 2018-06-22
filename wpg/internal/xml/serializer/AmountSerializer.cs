@@ -26,7 +26,7 @@ namespace wpg.@internal.xml.serializer
         public static void write(XmlBuilder builder, Amount amount)
         {
             builder.e("amount")
-                   .a("currencyCode", amount.Currency)
+                   .a("currencyCode", amount.CurrencyCode)
                    .a("exponent", amount.Exponent.ToString())
                    .a("value", amount.Value.ToString())
                    .up();

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace wpg.domain
 {
     public class Address
@@ -35,6 +37,38 @@ namespace wpg.domain
         public String State { get; set; }
         public String CountryCode { get; set; }
         public String TelephoneNumber { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var address = obj as Address;
+            return address != null &&
+                   FirstName == address.FirstName &&
+                   LastName == address.LastName &&
+                   Address1 == address.Address1 &&
+                   Address2 == address.Address2 &&
+                   Address3 == address.Address3 &&
+                   PostalCode == address.PostalCode &&
+                   City == address.City &&
+                   State == address.State &&
+                   CountryCode == address.CountryCode &&
+                   TelephoneNumber == address.TelephoneNumber;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -772988318;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(FirstName);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(LastName);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Address1);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Address2);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Address3);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(PostalCode);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(City);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(State);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CountryCode);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TelephoneNumber);
+            return hashCode;
+        }
 
     }
 }

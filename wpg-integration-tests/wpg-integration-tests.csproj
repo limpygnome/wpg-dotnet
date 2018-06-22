@@ -15,11 +15,23 @@
   <ItemGroup>
     <Folder Include="request\" />
     <Folder Include="request\card\" />
+    <Folder Include="request\apm\" />
+    <Folder Include="request\hosted\" />
+    <Folder Include="builder\" />
+    <Folder Include="request\threeds\" />
+    <Folder Include="data\" />
+    <Folder Include="data\order-notifications\" />
+    <Folder Include="xunit\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\wpg\wpg.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="data\order-notifications\authorised.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

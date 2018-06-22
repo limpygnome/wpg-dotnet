@@ -5,9 +5,13 @@ namespace wpg.exception
 {
     public class WpgMalformedException : WpgException
     {
-        public WpgMalformedException(HttpResponse response) : base("Unexpected response")
+        public WpgMalformedException(HttpResponse response) : base("Unexpected response from gateway")
         {
             this.Response = response;
+        }
+
+        public WpgMalformedException(string message) : base(message)
+        {
         }
 
         public WpgMalformedException(string message, HttpResponse response) : base(message)
