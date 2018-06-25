@@ -63,5 +63,116 @@ namespace wpgintegrationtests.builder
             Assert.Equal(0, payment.RiskScoreResult.Value);
         }
 
+        [TextFile("data/order-notifications/cancelled.txt")]
+        [Theory]
+        public void cancelled_asExpected(string xml)
+        {
+            // When
+            XmlNotificationBuilder builder = new XmlNotificationBuilder();
+            OrderNotification orderNotification = builder.read(xml);
+
+            // Then
+            Assert.NotNull(orderNotification);
+            Assert.Equal("ExampleOrder1", orderNotification.OrderCode);
+
+            // -- Payment
+            Payment payment = orderNotification.Payments[0];
+            Assert.Equal(LastEvent.CANCELLED, payment.LastEvent);
+            Assert.Equal("C", payment.CvcResult.Description);
+            Assert.Equal("E", payment.AvsResult.AvsResultCode);
+
+            // -- Journal
+            Journal journal = orderNotification.Journal;
+            Assert.Equal("CANCELLED", journal.Type);
+            Assert.Equal("n", journal.Sent);
+            Assert.Equal(1, journal.Transactions.Count);
+        }
+
+        [TextFile("data/order-notifications/captured.txt")]
+        [Theory]
+        public void captured_asExpected(string xml)
+        {
+            // When
+            XmlNotificationBuilder builder = new XmlNotificationBuilder();
+            OrderNotification orderNotification = builder.read(xml);
+
+            // Then
+            Assert.NotNull(orderNotification);
+            Assert.Equal("ExampleOrder1", orderNotification.OrderCode);
+
+            // -- Payment
+            Payment payment = orderNotification.Payments[0];
+            Assert.Equal(LastEvent.CAPTURED, payment.LastEvent);
+
+            // -- Journal
+            Journal journal = orderNotification.Journal;
+            Assert.Equal("CAPTURED", journal.Type);
+            Assert.Equal("n", journal.Sent);
+            Assert.Equal(2, journal.Transactions.Count);
+
+            JournalTransaction tx1 = journal.Transactions[0];
+            Assert.Equal("29", tx1.BatchId);
+            Assert.Equal(JournalTransactionType.IN_PROCESS_CAPTURED, tx1.Type);
+            Assert.Equal(DebitCreditIndicator.CREDIT, tx1.Amount.DebitCreditIndicator);
+            Assert.Equal(1000L, tx1.Amount.Value);
+            Assert.Equal(2L, tx1.Amount.Exponent);
+            Assert.Equal("EUR", tx1.Amount.CurrencyCode);
+
+            JournalTransaction tx2 = journal.Transactions[1];
+            Assert.Equal("30", tx2.BatchId);
+            Assert.Equal(JournalTransactionType.IN_PROCESS_AUTHORISED, tx2.Type);
+            Assert.Equal(DebitCreditIndicator.DEBIT, tx2.Amount.DebitCreditIndicator);
+            Assert.Equal(1000L, tx2.Amount.Value);
+            Assert.Equal(2L, tx2.Amount.Exponent);
+            Assert.Equal("EUR", tx2.Amount.CurrencyCode);
+
+            JournalReference reference = journal.References[0];
+            Assert.Equal("capture", reference.Type);
+            Assert.Equal("YourReference", reference.Reference);
+        }
+
+        [TextFile("data/order-notifications/refund.txt")]
+        [Theory]
+        public void refund_asExpected(string xml)
+        {
+            // When
+            XmlNotificationBuilder builder = new XmlNotificationBuilder();
+            OrderNotification orderNotification = builder.read(xml);
+
+            // Then
+            Assert.NotNull(orderNotification);
+            Assert.Equal("ExampleOrder1", orderNotification.OrderCode);
+
+            // -- Payment
+            Payment payment = orderNotification.Payments[0];
+            Assert.Equal(LastEvent.SENT_FOR_REFUND, payment.LastEvent);
+
+            // -- Journal
+            Journal journal = orderNotification.Journal;
+            Assert.Equal("SENT_FOR_REFUND", journal.Type);
+        }
+
+        [TextFile("data/order-notifications/refused.txt")]
+        [Theory]
+        public void refused_asExpected(string xml)
+        {
+            // When
+            XmlNotificationBuilder builder = new XmlNotificationBuilder();
+            OrderNotification orderNotification = builder.read(xml);
+
+            // Then
+            Assert.NotNull(orderNotification);
+            Assert.Equal("ExampleOrder1", orderNotification.OrderCode);
+
+            // -- Payment
+            Payment payment = orderNotification.Payments[0];
+            Assert.Equal(LastEvent.REFUSED, payment.LastEvent);
+            Assert.Equal(256, payment.RiskScoreResult.Value);
+
+            // -- Journal
+            Journal journal = orderNotification.Journal;
+            Assert.Equal("REFUSED", journal.Type);
+        }
+
     }
 }

@@ -23,6 +23,7 @@
   - ThreeDS authentication
   - Hosted Payment Pages
   - PayPal __(includes tokenisation)__
+- Order notifications (XML)
 
 ## Examples
 - [Examples](wpg-examples/examples)
