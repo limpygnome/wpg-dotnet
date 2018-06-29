@@ -51,6 +51,16 @@ namespace wpg.domain.card
         public Address CardHolderAddress { get; set; }
         public String EncryptedCardNumber { get; private set; }
 
+        public bool isAnythingDefined()
+        {
+            return !String.IsNullOrWhiteSpace(CardNumber)
+                          || ExpiryMonth != null
+                          || ExpiryYear != null
+                          || !String.IsNullOrWhiteSpace(CardHolderName)
+                          || !String.IsNullOrWhiteSpace(CVC)
+                          || CardHolderAddress != null;
+        }
+
         public override bool Equals(object obj)
         {
             var details = obj as CardDetails;

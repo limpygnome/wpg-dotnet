@@ -35,6 +35,9 @@
     <Folder Include="domain\apm\" />
     <Folder Include="domain\notification\" />
     <Folder Include="domain\journal\" />
+    <Folder Include="request\tokenisation\" />
+    <Folder Include="internal\xml\serializer\tokenisation\" />
+    <Folder Include="request\inquiry\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Net.Http" Version="4.3.3" />

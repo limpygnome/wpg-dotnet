@@ -2,6 +2,10 @@
 using System.Net.Http;
 using wpg.connection;
 using wpg.connection.auth;
+using wpg.domain;
+using wpg.domain.payment;
+using wpg.exception;
+using wpg.request.inquiry;
 using Xunit;
 
 namespace wpgintegrationtests
@@ -10,6 +14,13 @@ namespace wpgintegrationtests
     {
         protected static readonly GatewayContext GATEWAY_CONTEXT;
         protected static readonly HttpClient client = new HttpClient();
+
+        // Maximum number of times to poll an order for its status / last event to change.
+        // This is only required due to replication or/and processing delay.
+        protected const int ORDER_INQUIRY_ATTEMPTS = 40;
+
+         // Milliseconds delay between order inquiry polling attempts.
+        protected const int ORDER_INQUIRY_DELAY = 2500;
 
         static BaseIntegrationTest()
         {
@@ -32,6 +43,51 @@ namespace wpgintegrationtests
             int statusCode = (int) response.StatusCode;
             Assert.True(statusCode == expectedStatusCode, "Failed request assertion - expectedStatusCode=" + expectedStatusCode + ", statusCode=" + statusCode + ", url=" + url);
         }
+
+        protected LastEvent? pollUntil(OrderDetails orderDetails, LastEvent expectedLastEvent)
+        {
+            bool ready = false;
+            int attempts = 0;
+            LastEvent? result = null;
+
+            do
+            {
+                try
+                {
+                    Payment payment = new OrderInquiryRequest(orderDetails)
+                        .Send(GATEWAY_CONTEXT)
+                        .Result;
+                    result = payment.LastEvent;
+
+                    if (expectedLastEvent == result)
+                    {
+                        ready = true;
+                    }
+    }
+                catch (AggregateException e)
+                {
+                }
+
+                // Sleep until ready, probably replication delay...
+                if (!ready)
+                {
+                    System.Threading.Thread.Sleep(ORDER_INQUIRY_DELAY);
+                }
+            }
+            while (!ready && attempts++ < ORDER_INQUIRY_ATTEMPTS);
+
+            if (result == null)
+            {
+                throw new InvalidOperationException("Order not ready - unable to inquire status");
+            }
+            else if (result != expectedLastEvent)
+            {
+                throw new InvalidOperationException("Order does not have expected last event - currently: " + result + ", expected: " + expectedLastEvent);
+            }
+
+            return result;
+        }
+
 
     }
 }

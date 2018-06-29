@@ -23,7 +23,13 @@
   - ThreeDS authentication
   - Hosted Payment Pages
   - PayPal __(includes tokenisation)__
+- Order inquiries
 - Order notifications (XML)
+- Tokenisation
+  - Payments
+  - Fetch
+  - Fetch by shopper
+  - Delete
 
 ## Examples
 - [Examples](wpg-examples/examples)

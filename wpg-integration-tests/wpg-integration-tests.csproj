@@ -22,6 +22,8 @@
     <Folder Include="data\" />
     <Folder Include="data\order-notifications\" />
     <Folder Include="xunit\" />
+    <Folder Include="request\tokenisation\" />
+    <Folder Include="request\inquiry\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="UnitTest1.cs" />
