@@ -10,9 +10,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="examples\" />
-    <Folder Include="examples\card\" />
-    <Folder Include="examples\hosted\" />
-    <Folder Include="examples\apm\" />
-    <Folder Include="examples\threeds\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="examples\PayPalDemoProgram.cs" />
   </ItemGroup>
 </Project>

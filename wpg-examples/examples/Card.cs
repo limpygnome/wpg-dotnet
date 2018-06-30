@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Worldpay;
 
 namespace wpgexamples
 {
-    public class CardTokenisationDemoProgram : DemoApp
+    public class Card : DemoApp
     {
         public void Run(string xmlUser, string xmlPass, string merchantCode)
         {
@@ -19,12 +18,7 @@ namespace wpgexamples
             request.BillingAddress = address;
             request.ShippingAddress = address;
 
-            // Just add Shopper ID and CreateTokenDetails for tokenisation
-            request.Shopper = new Shopper(null, "shopperId123");
-            request.CreateTokenDetails = new CreateTokenDetails("TOKEN_EVENT_123", "monthly subscription");
-
-            Task<PaymentResponse> asyncResponse = request.Send(gatewayContext);
-            PaymentResponse response = asyncResponse.Result;
+            PaymentResponse response = request.Send(gatewayContext).Result;
 
             Console.WriteLine(response);
         }

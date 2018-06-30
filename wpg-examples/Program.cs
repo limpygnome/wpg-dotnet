@@ -20,14 +20,15 @@ namespace wpgexamples
             {
 
                 Dictionary<string, DemoApp> apps = new Dictionary<string, DemoApp>();
-                apps.Add("card", new CardDemoProgram());
-                apps.Add("card-advanced", new CardAdvancedDemoProgram());
-                apps.Add("card-tokenisation", new CardTokenisationDemoProgram());
-                apps.Add("hpp", new ThreeDsDemoApp());
-                apps.Add("paypal", new PayPalDemoProgram());
-                apps.Add("paypal-advanced", new PayPalAdvancedDemoProgram());
-                apps.Add("paypal-tokenisation", new PayPalTokenisationDemoProgram());
-                apps.Add("threeds", new ThreeDsDemoApp());
+                apps.Add("card", new Card());
+                apps.Add("card-advanced", new CardAdvanced());
+                apps.Add("card-tokenisation", new CardTokenisation());
+                apps.Add("hpp", new ThreeDs());
+                apps.Add("paypal", new PayPal());
+                apps.Add("paypal-advanced", new PayPalAdvanced());
+                apps.Add("paypal-tokenisation", new PayPalTokenisation());
+                apps.Add("threeds", new ThreeDs());
+                apps.Add("tokenisation-capture-cvc", new TokenisationCaptureCvc());
 
                 bool running = true;
 

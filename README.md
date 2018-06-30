@@ -20,7 +20,7 @@
 - Payments
   - Cards __(includes tokenisation)__
   - Tokenised cards
-  - ThreeDS authentication
+  - 3ds authentication
   - Hosted Payment Pages
   - PayPal __(includes tokenisation)__
 - Order inquiries

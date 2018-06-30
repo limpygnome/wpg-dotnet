@@ -6,7 +6,7 @@ namespace Worldpay
     public class XmlNotificationBuilder
     {
         
-        public OrderNotification read(string xml)
+        public OrderNotification Read(string xml)
         {
             try
             {

@@ -4,7 +4,7 @@ using Worldpay;
 
 namespace wpgexamples
 {
-    public class CardAdvancedDemoProgram : DemoApp
+    public class CardAdvanced : DemoApp
     {
         public void Run(string xmlUser, string xmlPass, string merchantCode)
         {

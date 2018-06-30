@@ -3,7 +3,7 @@ using Worldpay;
 
 namespace wpgexamples
 {
-    public class ThreeDsDemoApp : DemoApp
+    public class ThreeDs : DemoApp
     {
         public void Run(string xmlUser, string xmlPass, string merchantCode)
         {

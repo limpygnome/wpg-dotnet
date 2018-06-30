@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Worldpay;
 
 namespace wpgexamples
 {
-    public class CardDemoProgram : DemoApp
+    public class HostedPaymentPages : DemoApp
     {
         public void Run(string xmlUser, string xmlPass, string merchantCode)
         {
@@ -13,16 +12,14 @@ namespace wpgexamples
 
             Address address = new Address("test road", "Cambridge", "CB0123", "GB");
 
-            CardPaymentRequest request = new CardPaymentRequest();
+            HostedPaymentPagesRequest request = new HostedPaymentPagesRequest();
             request.OrderDetails = new OrderDetails("test order", new Amount("GBP", 2L, 1234L));
-            request.CardDetails = new CardDetails("4444333322221129", 1, 2020, "John Doe");
             request.BillingAddress = address;
             request.ShippingAddress = address;
 
-            Task<PaymentResponse> asyncResponse = request.Send(gatewayContext);
-            PaymentResponse response = asyncResponse.Result;
+            RedirectUrl response = request.Send(gatewayContext).Result;
 
-            Console.WriteLine(response);
+            Console.WriteLine("Url: " + response.Url);
         }
     }
 }

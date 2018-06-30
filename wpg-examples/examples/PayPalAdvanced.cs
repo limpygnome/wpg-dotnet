@@ -4,7 +4,7 @@ using Worldpay;
 
 namespace wpgexamples
 {
-    public class PayPalAdvancedDemoProgram : DemoApp
+    public class PayPalAdvanced : DemoApp
     {
         public void Run(string xmlUser, string xmlPass, string merchantCode)
         {
