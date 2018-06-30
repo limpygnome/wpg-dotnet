@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment.result
+namespace Worldpay
 {
     public class PayoutAuthorisationResult
     {
-        public PayoutAuthorisationResult(String authorisationId)
+        public PayoutAuthorisationResult(string authorisationId)
         {
             this.AuthorisationId = authorisationId;
         }
 
-        public String AuthorisationId { get; private set; }
+        public string AuthorisationId { get; private set; }
 
         public override bool Equals(object obj)
         {

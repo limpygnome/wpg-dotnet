@@ -1,8 +1,8 @@
 ﻿using System;
-using wpg.domain;
-namespace wpg.@internal.xml.serializer
+
+namespace Worldpay.@internal.xml.serializer
 {
-    public class ShopperSerializer
+    internal class ShopperSerializer
     {
 
         public static void decorateOrder(XmlBuildParams buildParams, Shopper shopper)

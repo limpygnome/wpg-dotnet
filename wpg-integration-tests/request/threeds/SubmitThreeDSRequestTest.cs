@@ -2,16 +2,10 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using wpg.connection;
-using wpg.domain;
-using wpg.domain.card;
-using wpg.domain.payment;
-using wpg.exception;
-using wpg.request.card;
-using wpg.request.threeds;
+using Worldpay;
 using Xunit;
 
-namespace wpgintegrationtests.request.threeds
+namespace wpgintegrationtests
 {
     public class SubmitThreeDSRequestTest : BaseIntegrationTest
     {

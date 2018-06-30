@@ -1,7 +1,4 @@
-﻿using wpg.domain.payment;
-using wpg.domain.redirect;
-
-namespace wpg.domain.tokenisation
+﻿namespace Worldpay
 {
     public class TokenisationPaymentResponse
     {

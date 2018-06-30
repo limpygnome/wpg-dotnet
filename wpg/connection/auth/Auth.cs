@@ -1,5 +1,4 @@
-﻿using System;
-namespace wpg.connection.auth
+﻿namespace Worldpay
 {
     public interface Auth
     {

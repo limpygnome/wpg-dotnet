@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-namespace wpg.domain.notification
+
+namespace Worldpay
 {
     public class BatchInquiry
     {

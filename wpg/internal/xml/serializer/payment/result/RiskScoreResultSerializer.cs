@@ -1,9 +1,6 @@
-﻿using System;
-using wpg.domain.payment.result;
-
-namespace wpg.@internal.xml.serializer.payment.result
+﻿namespace Worldpay.@internal.xml.serializer.payment.result
 {
-    public class RiskScoreResultSerializer
+    internal class RiskScoreResultSerializer
     {
 
         public static RiskScoreResult read(XmlBuilder builder)

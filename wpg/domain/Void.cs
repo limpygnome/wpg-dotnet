@@ -1,5 +1,4 @@
-﻿using System;
-namespace wpg.domain
+﻿namespace Worldpay
 {
     public class Void
     {

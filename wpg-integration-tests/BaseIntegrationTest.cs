@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Net.Http;
-using wpg.connection;
-using wpg.connection.auth;
-using wpg.domain;
-using wpg.domain.payment;
-using wpg.exception;
-using wpg.request.inquiry;
+using Worldpay;
 using Xunit;
 
 namespace wpgintegrationtests
@@ -64,7 +59,7 @@ namespace wpgintegrationtests
                         ready = true;
                     }
     }
-                catch (AggregateException e)
+                catch (AggregateException)
                 {
                 }
 

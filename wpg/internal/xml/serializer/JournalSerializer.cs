@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using wpg.domain.journal;
-using wpg.domain.payment;
 
-namespace wpg.@internal.xml.serializer
+namespace Worldpay.@internal.xml.serializer
 {
-    public class JournalSerializer
+    internal class JournalSerializer
     {
+
         public static Journal read(XmlBuilder builder)
         {
             // Read booking date

@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment.result
+namespace Worldpay
 {
     public class Balance
     {
-        public Balance(String accountType, Amount amount)
+        public Balance(string accountType, Amount amount)
         {
             this.AccountType = accountType;
             this.Amount = amount;
         }
 
-        public String AccountType { get; private set; }
+        public string AccountType { get; private set; }
         public Amount Amount { get; private set; }
 
         public override bool Equals(object obj)

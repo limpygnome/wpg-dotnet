@@ -1,9 +1,6 @@
-﻿using System;
-using wpg.domain.payment.result;
-
-namespace wpg.@internal.xml.serializer.payment.result
+﻿namespace Worldpay.@internal.xml.serializer.payment.result
 {
-    public class ThreeDSecureResultSerializer
+    internal class ThreeDSecureResultSerializer
     {
 
         public static ThreeDSecureResult read(XmlBuilder builder)
@@ -12,9 +9,9 @@ namespace wpg.@internal.xml.serializer.payment.result
 
             if (builder.hasE("ThreeDSecureResult"))
             {
-                String description = builder.a("description");
-                String eci = builder.getCdata("eci");
-                String cavv = builder.getCdata("cavv");
+                string description = builder.a("description");
+                string eci = builder.getCdata("eci");
+                string cavv = builder.getCdata("cavv");
 
                 result = new ThreeDSecureResult(description, eci, cavv);
                 builder.up();

@@ -1,13 +1,10 @@
-﻿using wpg.domain;
-using wpg.domain.card;
-using wpg.domain.tokenisation;
-using wpg.@internal.validation;
-using wpg.@internal.xml;
-using wpg.@internal.xml.adapter;
-using wpg.@internal.xml.serializer;
-using wpg.@internal.xml.serializer.tokenisation;
+﻿using Worldpay.@internal.validation;
+using Worldpay.@internal.xml;
+using Worldpay.@internal.xml.adapter;
+using Worldpay.@internal.xml.serializer;
+using Worldpay.@internal.xml.serializer.tokenisation;
 
-namespace wpg.request.tokenisation
+namespace Worldpay
 {
     public class TokenPaymentRequest : XmlRequest<TokenisationPaymentResponse>
     {
@@ -53,7 +50,7 @@ namespace wpg.request.tokenisation
             this.CaptureCvc = captureCvc;
         }
 
-        protected override void Validate(XmlBuildParams buildParams)
+        internal override void Validate(XmlBuildParams buildParams)
         {
             Assert.notEmpty(PaymentTokenId, "Payment token ID is mandatory");
             Assert.notNull(Scope, "Token scope is mandatory");
@@ -66,7 +63,7 @@ namespace wpg.request.tokenisation
             }
         }
 
-        protected override void Build(XmlBuildParams buildParams)
+        internal override void Build(XmlBuildParams buildParams)
         {
             OrderDetailsSerializer.decorateAndStartOrder(buildParams, OrderDetails);
             TokenPaymentSerializer.decorateOrder(buildParams, this);
@@ -76,7 +73,7 @@ namespace wpg.request.tokenisation
             OrderDetailsSerializer.decorateFinishOrder(buildParams);
         }
 
-        protected override TokenisationPaymentResponse Adapt(XmlResponse response)
+        internal override TokenisationPaymentResponse Adapt(XmlResponse response)
         {
             TokenisationPaymentResponseXmlAdapter adapter = new TokenisationPaymentResponseXmlAdapter();
             TokenisationPaymentResponse paymentResponse = adapter.read(response);

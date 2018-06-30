@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using wpg.domain.payment;
 
-namespace wpg.@internal.xml
+namespace Worldpay.@internal.xml
 {
-    public class PaymentMethodTypeTranslator
+    internal class PaymentMethodTypeTranslator
     {
         private static readonly Dictionary<PaymentMethodType, string> pmToMask;
         private static readonly Dictionary<string, PaymentMethodType> maskToPm;
 
         static PaymentMethodTypeTranslator()
         {
-            Dictionary<PaymentMethodType, String> result = new Dictionary<PaymentMethodType, string>();
+            Dictionary<PaymentMethodType, string> result = new Dictionary<PaymentMethodType, string>();
 
             result.Add(PaymentMethodType.CARD, "CARD-SSL");
             result.Add(PaymentMethodType.VISA, "VISA-SSL");
@@ -64,7 +63,7 @@ namespace wpg.@internal.xml
             pmToMask = result;
 
             // Flip it
-            maskToPm = new Dictionary<String, PaymentMethodType>();
+            maskToPm = new Dictionary<string, PaymentMethodType>();
             foreach (var kv in result)
             {
                 maskToPm.Add(kv.Value, kv.Key);

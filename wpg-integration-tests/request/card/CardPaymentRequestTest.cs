@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using wpg.connection;
-using wpg.connection.auth;
-using wpg.domain;
-using wpg.domain.card;
-using wpg.domain.payment;
-using wpg.domain.payment.result;
-using wpg.domain.tokenisation;
-using wpg.exception;
-using wpg.request.card;
+using Worldpay;
 using Xunit;
 
-namespace wpgintegrationtests.request.card
+namespace wpgintegrationtests
 {
     public class CardPaymentRequestTest : BaseIntegrationTest
     {
@@ -90,7 +82,7 @@ namespace wpgintegrationtests.request.card
             // check results expected
             CvcResult cvcResult = payment.CvcResult;
             Assert.NotNull(cvcResult);
-            Assert.Equal("NOT SENT TO ACQUIRER", cvcResult.Description);
+            Assert.Equal("C", cvcResult.Description);
 
             // check risk
             RiskScoreResult riskScoreResult = payment.RiskScoreResult;
@@ -127,7 +119,7 @@ namespace wpgintegrationtests.request.card
 
             CvcResult cvcResult = payment.CvcResult;
             Assert.NotNull(cvcResult);
-            Assert.Equal("NOT SUPPLIED BY SHOPPER", cvcResult.Description);
+            Assert.Equal("B", cvcResult.Description);
         }
 
         [Fact]

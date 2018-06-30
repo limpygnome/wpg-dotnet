@@ -1,16 +1,13 @@
-﻿using System;
-using wpg.domain.payment.result;
-
-namespace wpg.@internal.xml.serializer.payment.result
+﻿namespace Worldpay.@internal.xml.serializer.payment.result
 {
-    public class AvvResultSerializer
+    internal class AvvResultSerializer
     {
 
         public static AvvResult read(XmlBuilder builder)
         {
             AvvResult result = null;
 
-            String address = null, postcode = null, cardHolderName = null, telephone = null, email = null;
+            string address = null, postcode = null, cardHolderName = null, telephone = null, email = null;
             if (builder.hasE("AAVAddressResultCode"))
             {
                 address = builder.a("description");

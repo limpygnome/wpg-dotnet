@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace wpg.domain.card
+namespace Worldpay
 {
     public class CardDetails
     {
-        public CardDetails(String cardNumber, long? expiryMonth, long? expiryYear, String cardHolderName)
+        public CardDetails(string cardNumber, long? expiryMonth, long? expiryYear, string cardHolderName)
         {
             this.CardNumber = cardNumber;
             this.ExpiryMonth = expiryMonth;
@@ -13,7 +13,7 @@ namespace wpg.domain.card
             this.CardHolderName = cardHolderName;
         }
 
-        public CardDetails(String cardNumber, long? expiryMonth, long? expiryYear, String cardHolderName, String cvc)
+        public CardDetails(string cardNumber, long? expiryMonth, long? expiryYear, string cardHolderName, string cvc)
         {
             this.CardNumber = cardNumber;
             this.ExpiryMonth = expiryMonth;
@@ -22,7 +22,7 @@ namespace wpg.domain.card
             this.CVC = cvc;
         }
 
-        public CardDetails(String cardNumber, long? expiryMonth, long? expiryYear, String cardHolderName, String cvc, Address cardHolderAddress)
+        public CardDetails(string cardNumber, long? expiryMonth, long? expiryYear, string cardHolderName, string cvc, Address cardHolderAddress)
         {
             this.CardNumber = cardNumber;
             this.ExpiryMonth = expiryMonth;
@@ -32,7 +32,7 @@ namespace wpg.domain.card
             this.CardHolderAddress = cardHolderAddress;
         }
 
-        public CardDetails(String cardNumber, long? expiryMonth, long? expiryYear, String cardHolderName, String cvc, Address cardHolderAddress, String encryptedCardNumber)
+        public CardDetails(string cardNumber, long? expiryMonth, long? expiryYear, string cardHolderName, string cvc, Address cardHolderAddress, string encryptedCardNumber)
         {
             this.CardNumber = cardNumber;
             this.ExpiryMonth = expiryMonth;
@@ -43,13 +43,13 @@ namespace wpg.domain.card
             this.EncryptedCardNumber = encryptedCardNumber;
         }
 
-        public String CardNumber { get; set; }
+        public string CardNumber { get; set; }
         public long? ExpiryMonth { get; set; }
         public long? ExpiryYear { get; set; }
-        public String CardHolderName { get; set; }
-        public String CVC { get; set; }
+        public string CardHolderName { get; set; }
+        public string CVC { get; set; }
         public Address CardHolderAddress { get; set; }
-        public String EncryptedCardNumber { get; private set; }
+        public string EncryptedCardNumber { get; private set; }
 
         public bool isAnythingDefined()
         {

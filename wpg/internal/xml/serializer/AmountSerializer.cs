@@ -1,17 +1,17 @@
 ﻿using System;
-using wpg.domain.payment;
-namespace wpg.@internal.xml.serializer
+
+namespace Worldpay.@internal.xml.serializer
 {
-    public class AmountSerializer
+    internal class AmountSerializer
     {
 
         public static Amount read(XmlBuilder builder)
         {
-            String currencyCode = builder.a("currencyCode");
+            string currencyCode = builder.a("currencyCode");
             long exponent = builder.aToLong("exponent");
             long value = builder.aToLong("value");
 
-            String rawDebitCreditIndicator = builder.a("debitCreditIndicator");
+            string rawDebitCreditIndicator = builder.a("debitCreditIndicator");
             DebitCreditIndicator? debitCreditIndicator = null;
             try
             {

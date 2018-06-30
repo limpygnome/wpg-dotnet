@@ -1,11 +1,6 @@
-﻿using wpg.domain.payment;
-using wpg.domain.redirect;
-using wpg.domain.tokenisation;
-using wpg.exception;
-
-namespace wpg.@internal.xml.adapter
+﻿namespace Worldpay.@internal.xml.adapter
 {
-    public class TokenisationPaymentResponseXmlAdapter
+    internal class TokenisationPaymentResponseXmlAdapter
     {
 
         public TokenisationPaymentResponse read(XmlResponse response)

@@ -1,13 +1,10 @@
 ﻿using System;
-using wpg.domain;
-using wpg.domain.payment;
-using wpg.domain.redirect;
-using wpg.@internal.validation;
-using wpg.@internal.xml;
-using wpg.@internal.xml.adapter;
-using wpg.@internal.xml.serializer;
+using Worldpay.@internal.validation;
+using Worldpay.@internal.xml;
+using Worldpay.@internal.xml.adapter;
+using Worldpay.@internal.xml.serializer;
 
-namespace wpg.request.hosted
+namespace Worldpay
 {
     public class HostedPaymentPagesRequest : XmlRequest<RedirectUrl>
     {
@@ -46,12 +43,12 @@ namespace wpg.request.hosted
         public Address ShippingAddress { get; set; }
         public PaymentMethodTypeFilter Filter { get; private set; }
 
-        protected override void Validate(XmlBuildParams buildParams)
+        internal override void Validate(XmlBuildParams buildParams)
         {
             Assert.notNull(OrderDetails, "Order details are mandatory");
         }
 
-        protected override void Build(XmlBuildParams buildParams)
+        internal override void Build(XmlBuildParams buildParams)
         {
             OrderDetailsSerializer.decorateAndStartOrder(buildParams, OrderDetails);
             PaymentMethodTypeMaskSerializer.decorate(buildParams, Filter);
@@ -60,7 +57,7 @@ namespace wpg.request.hosted
             OrderDetailsSerializer.decorateFinishOrder(buildParams);
         }
 
-        protected override RedirectUrl Adapt(XmlResponse response)
+        internal override RedirectUrl Adapt(XmlResponse response)
         {
             RedirectUrlXmlAdapter adapter = new RedirectUrlXmlAdapter();
             RedirectUrl redirectUrl = adapter.read(response);

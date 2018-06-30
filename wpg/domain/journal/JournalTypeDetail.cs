@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace wpg.domain.journal
+namespace Worldpay
 {
     public class JournalTypeDetail
     {

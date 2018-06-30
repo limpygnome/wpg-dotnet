@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment.result
+namespace Worldpay
 {
     public class AvvResult
     {
-        public AvvResult(String addressResultCode, String postCodeResultCode, String cardHolderNameResultCode, String telephoneResultCode, String emailResultCode)
+        public AvvResult(string addressResultCode, string postCodeResultCode, string cardHolderNameResultCode, string telephoneResultCode, string emailResultCode)
         {
             this.AddressResultCode = addressResultCode;
             this.PostCodeResultCode = postCodeResultCode;
@@ -14,11 +13,11 @@ namespace wpg.domain.payment.result
             this.EmailResultCode = emailResultCode;
         }
 
-        public String AddressResultCode { get; set; }
-        public String PostCodeResultCode { get; set; }
-        public String CardHolderNameResultCode { get; set; }
-        public String TelephoneResultCode { get; set; }
-        public String EmailResultCode { get; set; }
+        public string AddressResultCode { get; set; }
+        public string PostCodeResultCode { get; set; }
+        public string CardHolderNameResultCode { get; set; }
+        public string TelephoneResultCode { get; set; }
+        public string EmailResultCode { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -1,8 +1,6 @@
-﻿using wpg.request.tokenisation;
-
-namespace wpg.@internal.xml.serializer.tokenisation
+﻿namespace Worldpay.@internal.xml.serializer.tokenisation
 {
-    public class DeleteTokenSerializer
+    internal class DeleteTokenSerializer
     {
 
         public static void decorate(XmlBuildParams buildParams, DeleteTokenRequest request)

@@ -1,5 +1,4 @@
-﻿using System;
-namespace wpg.domain.notification
+﻿namespace Worldpay
 {
     public enum BatchStatus
     {

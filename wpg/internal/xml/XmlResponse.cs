@@ -1,10 +1,7 @@
-﻿using System;
-using wpg.connection;
-using wpg.connection.http;
-
-namespace wpg.@internal.xml
+﻿
+namespace Worldpay.@internal.xml
 {
-    public class XmlResponse
+    internal class XmlResponse
     {
         public XmlResponse(SessionContext sessionContext, HttpResponse response, XmlBuilder builder)
         {

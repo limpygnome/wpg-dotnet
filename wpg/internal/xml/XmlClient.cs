@@ -4,14 +4,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using wpg.connection;
-using wpg.connection.auth;
-using wpg.exception;
-using wpg.connection.http;
 
-namespace wpg.@internal.xml
+namespace Worldpay.@internal.xml
 {
-    public class XmlClient
+    internal class XmlClient
     {
         private static Dictionary<KeyValuePair<XmlEndpoint, GatewayEnvironment>, HttpClient> clients = new Dictionary<KeyValuePair<XmlEndpoint, GatewayEnvironment>, HttpClient>();
 
@@ -44,7 +40,7 @@ namespace wpg.@internal.xml
             HttpResponse response = await transform(buildParams.SessionContext, rawResponse);
 
             // Check respone for gateway errors
-            MatchCollection matches = Regex.Matches(response.Body, "(?:<p>)([^<]+)", RegexOptions.Multiline);
+            MatchCollection matches = Regex.Matches(response.Body, "(?<=<p>)([^<]+)", RegexOptions.Multiline);
             if (matches.Count > 0)
             {
                 String pageError = matches[0].Value.Trim();
@@ -93,7 +89,7 @@ namespace wpg.@internal.xml
         private async Task<HttpResponse> transform(SessionContext sessionContext, HttpResponseMessage rawResponse)
         {
             String body = await rawResponse.Content.ReadAsStringAsync();
-            Dictionary<String, String> headers = transformHeaders(rawResponse);
+            Dictionary<string, string> headers = transformHeaders(rawResponse);
             HttpResponse response = new HttpResponse(headers, body);
             storeCookies(sessionContext, rawResponse);
             return response;

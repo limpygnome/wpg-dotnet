@@ -1,8 +1,6 @@
-﻿using wpg.request.tokenisation;
-
-namespace wpg.@internal.xml.serializer.tokenisation
+﻿namespace Worldpay.@internal.xml.serializer.tokenisation
 {
-    public class FetchTokenSerializer
+    internal class FetchTokenSerializer
     {
 
         public static void decorate(XmlBuildParams buildParams, FetchTokenRequest request)

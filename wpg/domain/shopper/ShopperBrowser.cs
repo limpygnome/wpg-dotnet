@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain
+namespace Worldpay
 {
     public class ShopperBrowser
     {
         public ShopperBrowser() { }
 
-        public ShopperBrowser(String acceptHeader, String userAgentHeader)
+        public ShopperBrowser(string acceptHeader, string userAgentHeader)
         {
             this.AcceptHeader = acceptHeader;
             this.UserAgentHeader = userAgentHeader;
         }
 
-        public ShopperBrowser(String acceptHeader, String userAgentHeader, String httpAcceptLanguageHeader, String httpReferer, String activeHeaders, String timeZone, String resolution)
+        public ShopperBrowser(string acceptHeader, string userAgentHeader, string httpAcceptLanguageHeader, string httpReferer, string activeHeaders, string timeZone, string resolution)
         {
             this.AcceptHeader = acceptHeader;
             this.UserAgentHeader = userAgentHeader;
@@ -24,13 +23,13 @@ namespace wpg.domain
             this.Resolution = resolution;
         }
 
-        public String AcceptHeader { get; set; }
-        public String UserAgentHeader { get; set; }
-        public String HttpAcceptLanguageHeader { get; set; }
-        public String HttpReferer { get; set; }
-        public String ActiveHeaders { get; set; }
-        public String TimeZone { get; set; }
-        public String Resolution { get; set; }
+        public string AcceptHeader { get; set; }
+        public string UserAgentHeader { get; set; }
+        public string HttpAcceptLanguageHeader { get; set; }
+        public string HttpReferer { get; set; }
+        public string ActiveHeaders { get; set; }
+        public string TimeZone { get; set; }
+        public string Resolution { get; set; }
 
         public override bool Equals(object obj)
         {

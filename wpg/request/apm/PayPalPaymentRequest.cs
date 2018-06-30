@@ -1,15 +1,11 @@
 ﻿using System;
-using wpg.domain;
-using wpg.domain.apm;
-using wpg.domain.redirect;
-using wpg.domain.tokenisation;
-using wpg.@internal.validation;
-using wpg.@internal.xml;
-using wpg.@internal.xml.adapter;
-using wpg.@internal.xml.serializer;
-using wpg.@internal.xml.serializer.payment.tokenisation;
+using Worldpay.@internal.validation;
+using Worldpay.@internal.xml;
+using Worldpay.@internal.xml.adapter;
+using Worldpay.@internal.xml.serializer;
+using Worldpay.@internal.xml.serializer.payment.tokenisation;
 
-namespace wpg.request.apm
+namespace Worldpay
 {
     public class PayPalPaymentRequest : XmlRequest<RedirectUrl>
     {
@@ -81,7 +77,7 @@ namespace wpg.request.apm
             return this;
         }
 
-        protected override void Validate(XmlBuildParams buildParams)
+        internal override void Validate(XmlBuildParams buildParams)
         {
             Assert.notNull(OrderDetails, "Order details are mandatory");
             Assert.notNull(Shopper, "Shopper details are mandatory");
@@ -96,7 +92,7 @@ namespace wpg.request.apm
             }
         }
 
-        protected override void Build(XmlBuildParams buildParams)
+        internal override void Build(XmlBuildParams buildParams)
         {
             OrderDetailsSerializer.decorateAndStartOrder(buildParams, OrderDetails);
 
@@ -131,7 +127,7 @@ namespace wpg.request.apm
             OrderDetailsSerializer.decorateFinishOrder(buildParams);
         }
 
-        protected override RedirectUrl Adapt(XmlResponse response)
+        internal override RedirectUrl Adapt(XmlResponse response)
         {
             RedirectUrlXmlAdapter adapter = new RedirectUrlXmlAdapter();
             RedirectUrl redirectUrl = adapter.read(response);

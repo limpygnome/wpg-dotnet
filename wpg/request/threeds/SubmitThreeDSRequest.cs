@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using wpg.connection;
-using wpg.connection.auth;
-using wpg.domain;
-using wpg.domain.payment;
-using wpg.domain.payment.threeds;
-using wpg.@internal.validation;
-using wpg.@internal.xml;
-using wpg.@internal.xml.adapter;
+using Worldpay.@internal.validation;
+using Worldpay.@internal.xml;
+using Worldpay.@internal.xml.adapter;
 
-namespace wpg.request.threeds
+namespace Worldpay
 {
     public class SubmitThreeDSRequest : XmlRequest<PaymentResponse>
     {
@@ -48,13 +43,13 @@ namespace wpg.request.threeds
         public string OrderCode { get; set; }
         public string PaResponse { get; set; }
 
-        protected override void Validate(XmlBuildParams buildParams)
+        internal override void Validate(XmlBuildParams buildParams)
         {
             Assert.notEmpty(OrderCode, "Order code is mandatory");
             Assert.notEmpty(PaResponse, "PaResponse is mandatory");
         }
 
-        protected override void Build(XmlBuildParams buildParams)
+        internal override void Build(XmlBuildParams buildParams)
         {
             XmlBuilder builder = buildParams.Builder;
 
@@ -77,7 +72,7 @@ namespace wpg.request.threeds
                     .e("session").a("id", sessionId);
         }
 
-        protected override PaymentResponse Adapt(XmlResponse response)
+        internal override PaymentResponse Adapt(XmlResponse response)
         {
             PaymentResponseXmlAdapter adapter = new PaymentResponseXmlAdapter();
             PaymentResponse result = adapter.read(response);

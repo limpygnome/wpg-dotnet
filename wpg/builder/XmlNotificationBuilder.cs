@@ -1,9 +1,7 @@
-﻿using wpg.domain.notification;
-using wpg.exception;
-using wpg.@internal.xml;
-using wpg.@internal.xml.adapter;
+﻿using Worldpay.@internal.xml;
+using Worldpay.@internal.xml.adapter;
 
-namespace wpg.builder
+namespace Worldpay
 {
     public class XmlNotificationBuilder
     {
@@ -18,7 +16,7 @@ namespace wpg.builder
             }
             catch (WpgRequestException e)
             {
-                throw new WpgMalformedException("Malformed order notification XML", xml);
+                throw new WpgMalformedException("Malformed order notification XML", xml, e);
             }
         }
 

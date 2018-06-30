@@ -1,15 +1,11 @@
 ﻿using System;
-using wpg.domain;
-using wpg.domain.card;
-using wpg.domain.payment;
-using wpg.domain.tokenisation;
-using wpg.@internal.validation;
-using wpg.@internal.xml;
-using wpg.@internal.xml.adapter;
-using wpg.@internal.xml.serializer;
-using wpg.@internal.xml.serializer.payment.tokenisation;
+using Worldpay.@internal.validation;
+using Worldpay.@internal.xml;
+using Worldpay.@internal.xml.adapter;
+using Worldpay.@internal.xml.serializer;
+using Worldpay.@internal.xml.serializer.payment.tokenisation;
 
-namespace wpg.request.card
+namespace Worldpay
 {
     public class CardPaymentRequest : XmlRequest<PaymentResponse>
     {
@@ -55,7 +51,7 @@ namespace wpg.request.card
         public Address ShippingAddress { get; set; }
         public CreateTokenDetails CreateTokenDetails { get; set; }
 
-        protected override void Validate(XmlBuildParams buildParams)
+        internal override void Validate(XmlBuildParams buildParams)
         {
             Assert.notNull(OrderDetails, "Order details are mandatory");
             Assert.notNull(CardDetails, "Card details are mandatory");
@@ -68,7 +64,7 @@ namespace wpg.request.card
             }
         }
 
-        protected override void Build(XmlBuildParams buildParams)
+        internal override void Build(XmlBuildParams buildParams)
         {
             OrderDetailsSerializer.decorateAndStartOrder(buildParams, OrderDetails);
             CardDetailsSerializer.decorateOrder(buildParams, CardDetails);
@@ -79,7 +75,7 @@ namespace wpg.request.card
             OrderDetailsSerializer.decorateFinishOrder(buildParams);
         }
 
-        protected override PaymentResponse Adapt(XmlResponse response)
+        internal override PaymentResponse Adapt(XmlResponse response)
         {
             PaymentResponseXmlAdapter adapter = new PaymentResponseXmlAdapter();
             PaymentResponse result = adapter.read(response);

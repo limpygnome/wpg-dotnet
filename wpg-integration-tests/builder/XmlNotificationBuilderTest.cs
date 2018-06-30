@@ -1,12 +1,8 @@
 ﻿using System;
-using wpg.builder;
-using wpg.domain.journal;
-using wpg.domain.notification;
-using wpg.domain.payment;
-using wpgintegrationtests.xunit;
+using Worldpay;
 using Xunit;
 
-namespace wpgintegrationtests.builder
+namespace wpgintegrationtests
 {
     public class XmlNotificationBuilderTest
     {

@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using wpg.connection;
-using wpg.connection.auth;
-using wpg.domain;
-using wpg.domain.redirect;
-using wpg.domain.payment;
-using wpg.domain.tokenisation;
-using wpg.request.apm;
+using Worldpay;
 
 namespace wpgexamples
 {

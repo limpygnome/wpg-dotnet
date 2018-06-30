@@ -1,12 +1,11 @@
-﻿using System;
-namespace wpg
+﻿namespace Worldpay
 {
     public class Constants
     {
-        
-        public const String STATS_HEADER_KEY = "X-Worldpay-SDK";
 
-        public const String STATS_HEADER_VALUE = "lang=java version=1.0";
+        public const string STATS_HEADER_KEY = "X-Worldpay-SDK";
+
+        public const string STATS_HEADER_VALUE = "lang=java version=1.0";
 
     }
 }

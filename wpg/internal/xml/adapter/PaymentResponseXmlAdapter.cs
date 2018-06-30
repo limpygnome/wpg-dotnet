@@ -1,15 +1,9 @@
-﻿using System;
-using wpg.connection;
-using wpg.connection.http;
-using wpg.domain.payment;
-using wpg.domain.payment.threeds;
-using wpg.exception;
-using wpg.@internal.xml.serializer.payment;
-using wpg.@internal.xml.serializer.payment.threeds;
+﻿using Worldpay.@internal.xml.serializer.payment;
+using Worldpay.@internal.xml.serializer.payment.threeds;
 
-namespace wpg.@internal.xml.adapter
+namespace Worldpay.@internal.xml.adapter
 {
-    public class PaymentResponseXmlAdapter
+    internal class PaymentResponseXmlAdapter
     {
 
         public PaymentResponse read(XmlResponse response)

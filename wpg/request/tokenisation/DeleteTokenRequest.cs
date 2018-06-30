@@ -1,11 +1,8 @@
-﻿using wpg.domain;
-using wpg.domain.tokenisation;
-using wpg.exception;
-using wpg.@internal.validation;
-using wpg.@internal.xml;
-using wpg.@internal.xml.serializer.tokenisation;
+﻿using Worldpay.@internal.validation;
+using Worldpay.@internal.xml;
+using Worldpay.@internal.xml.serializer.tokenisation;
 
-namespace wpg.request.tokenisation
+namespace Worldpay
 {
     public class DeleteTokenRequest : XmlRequest<Void>
     {
@@ -43,7 +40,7 @@ namespace wpg.request.tokenisation
             this.Scope = scope;
         }
 
-        protected override void Validate(XmlBuildParams buildParams)
+        internal override void Validate(XmlBuildParams buildParams)
         {
             Assert.notEmpty(PaymentTokenId, "Payment token ID is mandatory");
             Assert.notNull(Scope, "Token scope is mandatory");
@@ -54,12 +51,12 @@ namespace wpg.request.tokenisation
             }
         }
 
-        protected override void Build(XmlBuildParams buildParams)
+        internal override void Build(XmlBuildParams buildParams)
         {
             DeleteTokenSerializer.decorate(buildParams, this);
         }
 
-        protected override Void Adapt(XmlResponse response)
+        internal override Void Adapt(XmlResponse response)
         {
             XmlBuilder builder = response.Builder;
 

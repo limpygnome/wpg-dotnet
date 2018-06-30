@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using wpg.builder;
-using wpg.domain.payment;
-namespace wpg.domain
+﻿using System.Collections.Generic;
+
+namespace Worldpay
 {
     public class OrderDetails
     {

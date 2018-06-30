@@ -1,5 +1,4 @@
-﻿using System;
-namespace wpg.domain.tokenisation
+﻿namespace Worldpay
 {
     public interface TokenInstrument
     {

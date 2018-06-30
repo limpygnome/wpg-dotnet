@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using wpg.domain.payment;
 
-namespace wpg.domain.journal
+namespace Worldpay
 {
     public class JournalTransaction
     {

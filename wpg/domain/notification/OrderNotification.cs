@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using wpg.domain.payment;
-using wpg.domain.journal;
 
-namespace wpg.domain.notification
+namespace Worldpay
 {
     public class OrderNotification
     {

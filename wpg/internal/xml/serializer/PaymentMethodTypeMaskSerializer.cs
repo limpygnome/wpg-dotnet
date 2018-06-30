@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using wpg.domain.payment;
 
-namespace wpg.@internal.xml.serializer
+namespace Worldpay.@internal.xml.serializer
 {
-    public class PaymentMethodTypeMaskSerializer
+    internal class PaymentMethodTypeMaskSerializer
     {
 
         public static void decorate(XmlBuildParams buildParams, PaymentMethodTypeFilter filter)

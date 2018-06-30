@@ -1,8 +1,6 @@
-﻿using System;
-using wpg.connection;
-namespace wpg.@internal.xml
+﻿namespace Worldpay.@internal.xml
 {
-    public class XmlBuildParams
+    internal class XmlBuildParams
     {
         public XmlBuildParams(GatewayContext gatewayContext, SessionContext sessionContext, XmlBuilder builder)
         {

@@ -1,11 +1,9 @@
 ﻿using System;
-using wpg.domain.payment.result;
-using wpg.domain.tokenisation;
-using wpg.@internal.xml.serializer.payment.result;
+using Worldpay.@internal.xml.serializer.payment.result;
 
-namespace wpg.@internal.xml.serializer.payment.tokenisation
+namespace Worldpay.@internal.xml.serializer.payment.tokenisation
 {
-    public class TokenInstrumentSerializer
+    internal class TokenInstrumentSerializer
     {
 
         public static TokenInstrument read(XmlBuilder builder)

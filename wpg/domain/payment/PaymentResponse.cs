@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using wpg.domain.payment.threeds;
-namespace wpg.domain.payment
+﻿using System.Collections.Generic;
+
+namespace Worldpay
 {
     public class PaymentResponse
     {

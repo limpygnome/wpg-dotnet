@@ -1,7 +1,8 @@
 ﻿using System;
-namespace wpg.@internal.xml.serializer
+
+namespace Worldpay.@internal.xml.serializer
 {
-    public class DateSerializer
+    internal class DateSerializer
     {
 
         public static DateTime readDate(XmlBuilder builder)

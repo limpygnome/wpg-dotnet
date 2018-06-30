@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Text;
 using System.Net;
-using wpg.domain.payment;
-using wpg.@internal.xml;
+using Worldpay.@internal.xml;
 
-namespace wpg.builder
+namespace Worldpay
 {
     public class PaymentPagesRedirectBuilder
     {

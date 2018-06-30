@@ -1,8 +1,8 @@
 ﻿using System;
-using wpg.domain;
-namespace wpg.@internal.xml.serializer
+
+namespace Worldpay.@internal.xml.serializer
 {
-    public class AddressSerializer
+    internal class AddressSerializer
     {
 
         public static void decorateOrder(XmlBuildParams buildParams, Address billingAddress, Address shippingAddress)
@@ -28,7 +28,7 @@ namespace wpg.@internal.xml.serializer
             }
         }
 
-        private static void decorateAddress(String elementName, XmlBuilder builder, Address address)
+        private static void decorateAddress(string elementName, XmlBuilder builder, Address address)
         {
             if (elementName != null)
             {
@@ -89,16 +89,16 @@ namespace wpg.@internal.xml.serializer
 
         public static Address read(XmlBuilder builder)
         {
-            String firstName = builder.getCdata("firstName");
-            String lastName = builder.getCdata("lastName");
-            String address1 = builder.getCdata("address1");
-            String address2 = builder.getCdata("address2");
-            String address3 = builder.getCdata("address3");
-            String postcode = builder.getCdata("postalCode");
-            String city = builder.getCdata("city");
-            String state = builder.getCdata("state");
-            String countryCode = builder.getCdata("countryCode");
-            String telephoneNumber = builder.getCdata("telephoneNumber");
+            string firstName = builder.getCdata("firstName");
+            string lastName = builder.getCdata("lastName");
+            string address1 = builder.getCdata("address1");
+            string address2 = builder.getCdata("address2");
+            string address3 = builder.getCdata("address3");
+            string postcode = builder.getCdata("postalCode");
+            string city = builder.getCdata("city");
+            string state = builder.getCdata("state");
+            string countryCode = builder.getCdata("countryCode");
+            string telephoneNumber = builder.getCdata("telephoneNumber");
 
             Address address = new Address(firstName, lastName, address1, address2, address3, postcode, city, state, countryCode, telephoneNumber);
             return address;

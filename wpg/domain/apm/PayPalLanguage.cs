@@ -1,5 +1,4 @@
-﻿using System;
-namespace wpg.domain.apm
+﻿namespace Worldpay
 {
     public enum PayPalLanguage
     {

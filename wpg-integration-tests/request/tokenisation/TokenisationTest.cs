@@ -1,14 +1,8 @@
 ﻿using System.Collections.Generic;
-using wpg.domain;
-using wpg.domain.card;
-using wpg.domain.payment;
-using wpg.domain.tokenisation;
-using wpg.exception;
-using wpg.request.card;
-using wpg.request.tokenisation;
+using Worldpay;
 using Xunit;
 
-namespace wpgintegrationtests.request.tokenisation
+namespace wpgintegrationtests
 {
     public class TokenisationTest : BaseIntegrationTest
     {

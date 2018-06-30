@@ -1,9 +1,6 @@
-﻿using System;
-using wpg.exception;
-
-namespace wpg.@internal.xml.adapter
+﻿namespace Worldpay.@internal.xml.adapter
 {
-    public class ErrorCodeAdapter
+    internal class ErrorCodeAdapter
     {
 
         public static void throwIfPresent(XmlResponse response)
@@ -20,7 +17,7 @@ namespace wpg.@internal.xml.adapter
         private static void handleError(XmlResponse response, XmlBuilder errorTag)
         {
             long code = errorTag.aToLong("code");
-            String message = errorTag.cdata();
+            string message = errorTag.cdata();
             throw new WpgErrorResponseException(code, message, response.Response);
         }
 

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain
+namespace Worldpay
 {
     public class Address
     {
-        public Address(String address1, String city, String postalCode, String countryCode)
+        public Address(string address1, string city, string postalCode, string countryCode)
         {
             this.Address1 = address1;
             this.City = city;
@@ -13,7 +12,7 @@ namespace wpg.domain
             this.CountryCode = countryCode;
         }
 
-        public Address(String firstName, String lastName, String address1, String address2, String address3, String postalCode, String city, String state, String countryCode, String telephoneNumber)
+        public Address(string firstName, string lastName, string address1, string address2, string address3, string postalCode, string city, string state, string countryCode, string telephoneNumber)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -27,16 +26,16 @@ namespace wpg.domain
             this.TelephoneNumber = telephoneNumber;
         }
 
-        public String FirstName { get; set; }
-        public String LastName { get; set; }
-        public String Address1 { get; set; }
-        public String Address2 { get; set; }
-        public String Address3 { get; set; }
-        public String PostalCode { get; set; }
-        public String City { get; set; }
-        public String State { get; set; }
-        public String CountryCode { get; set; }
-        public String TelephoneNumber { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string CountryCode { get; set; }
+        public string TelephoneNumber { get; set; }
 
         public override bool Equals(object obj)
         {

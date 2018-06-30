@@ -1,5 +1,4 @@
-﻿using System;
-namespace wpg.domain.journal
+﻿namespace Worldpay
 {
     public enum JournalTransactionType
     {

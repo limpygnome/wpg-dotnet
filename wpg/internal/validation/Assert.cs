@@ -1,10 +1,11 @@
 ﻿using System;
-namespace wpg.@internal.validation
+
+namespace Worldpay.@internal.validation
 {
-    public class Assert
+    internal class Assert
     {
 
-        public static void notNull(object obj, String message)
+        public static void notNull(object obj, string message)
         {
             if (obj == null)
             {
@@ -12,7 +13,7 @@ namespace wpg.@internal.validation
             }
         }
 
-        public static void notEmpty(string obj, String message)
+        public static void notEmpty(string obj, string message)
         {
             if (obj == null || obj.Length == 0)
             {

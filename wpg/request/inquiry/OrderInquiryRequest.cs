@@ -1,11 +1,9 @@
-﻿using wpg.domain;
-using wpg.domain.payment;
-using wpg.@internal.validation;
-using wpg.@internal.xml;
-using wpg.@internal.xml.adapter;
-using wpg.@internal.xml.serializer;
+﻿using Worldpay.@internal.validation;
+using Worldpay.@internal.xml;
+using Worldpay.@internal.xml.adapter;
+using Worldpay.@internal.xml.serializer;
 
-namespace wpg.request.inquiry
+namespace Worldpay
 {
     public class OrderInquiryRequest : XmlRequest<Payment>
     {
@@ -25,17 +23,17 @@ namespace wpg.request.inquiry
             this.OrderCode = orderCode;
         }
 
-        protected override void Validate(XmlBuildParams buildParams)
+        internal override void Validate(XmlBuildParams buildParams)
         {
             Assert.notEmpty(OrderCode, "Order code is mandatory");
         }
 
-        protected override void Build(XmlBuildParams buildParams)
+        internal override void Build(XmlBuildParams buildParams)
         {
             OrderInquirySerializer.decorate(buildParams, this);
         }
 
-        protected override Payment Adapt(XmlResponse response)
+        internal override Payment Adapt(XmlResponse response)
         {
             PaymentResponseXmlAdapter adapter = new PaymentResponseXmlAdapter();
             PaymentResponse result = adapter.read(response);

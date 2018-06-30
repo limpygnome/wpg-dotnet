@@ -1,11 +1,7 @@
-﻿using wpg.domain;
-using wpg.domain.card;
-using wpg.domain.payment;
-using wpg.request.card;
-using wpg.request.inquiry;
+﻿using Worldpay;
 using Xunit;
 
-namespace wpgintegrationtests.request.inquiry
+namespace wpgintegrationtests
 {
     public class OrderInquiryRequestTest : BaseIntegrationTest
     {

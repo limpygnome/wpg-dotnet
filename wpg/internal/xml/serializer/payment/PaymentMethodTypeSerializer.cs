@@ -1,9 +1,8 @@
 ﻿using System;
-using wpg.domain.payment;
 
-namespace wpg.@internal.xml.serializer.payment
+namespace Worldpay.@internal.xml.serializer.payment
 {
-    public class PaymentMethodTypeSerializer
+    internal class PaymentMethodTypeSerializer
     {
 
         public static PaymentMethodType? convert(string paymentMethodMask)

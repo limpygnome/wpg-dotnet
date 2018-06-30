@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using wpg.domain.payment.result;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.tokenisation
+namespace Worldpay
 {
     public class TokenCardDetails : TokenInstrument
     {
-        public TokenCardDetails(String cardBrand, String cardSubBrand, String issuerCountryCode, String obfuscatedCardNumber, CardDetailsResult cardDetailsResult)
+        public TokenCardDetails(string cardBrand, string cardSubBrand, string issuerCountryCode, string obfuscatedCardNumber, CardDetailsResult cardDetailsResult)
         {
             this.CardBrand = cardBrand;
             this.CardSubBrand = cardSubBrand;

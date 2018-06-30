@@ -1,9 +1,6 @@
-﻿using System;
-using wpg.domain.payment.result;
-
-namespace wpg.@internal.xml.serializer.payment.result
+﻿namespace Worldpay.@internal.xml.serializer.payment.result
 {
-    public class CvcResultSerializer
+    internal class CvcResultSerializer
     {
 
         public static CvcResult read(XmlBuilder builder)
@@ -11,7 +8,7 @@ namespace wpg.@internal.xml.serializer.payment.result
             CvcResult result = null;
             if (builder.hasE("CVCResultCode"))
             {
-                String resultCode = builder.a("description");
+                string resultCode = builder.a("description");
                 result = new CvcResult(resultCode);
                 builder.up();
             }

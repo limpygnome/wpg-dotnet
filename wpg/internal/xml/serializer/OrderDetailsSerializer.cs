@@ -1,11 +1,8 @@
 ﻿using System;
-using wpg.connection.auth;
-using wpg.domain;
-using wpg.domain.payment;
 
-namespace wpg.@internal.xml.serializer
+namespace Worldpay.@internal.xml.serializer
 {
-    public class OrderDetailsSerializer
+    internal class OrderDetailsSerializer
     {
 
         public static void decorateMerchantCode(XmlBuildParams buildParams)

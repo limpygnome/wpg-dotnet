@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.journal
+namespace Worldpay
 {
     public class JournalReference
     {

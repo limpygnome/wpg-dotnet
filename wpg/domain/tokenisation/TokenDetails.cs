@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace wpg.domain.tokenisation
+namespace Worldpay
 {
     public class TokenDetails
     {
-        public TokenDetails(String paymentTokenId, DateTime tokenExpiry, String tokenEvent, String eventReference, String eventReason)
+        public TokenDetails(string paymentTokenId, DateTime tokenExpiry, string tokenEvent, string eventReference, string eventReason)
         {
             this.PaymentTokenId = paymentTokenId;
             this.TokenExpiry = tokenExpiry;
@@ -14,11 +14,11 @@ namespace wpg.domain.tokenisation
             this.EventReason = eventReason;
         }
 
-        public String PaymentTokenId { get; set; }
+        public string PaymentTokenId { get; set; }
         public DateTime TokenExpiry { get; set; }
-        public String TokenEvent { get; set; }
-        public String EventReference { get; set; }
-        public String EventReason { get; set; }
+        public string TokenEvent { get; set; }
+        public string EventReference { get; set; }
+        public string EventReason { get; set; }
 
         public override bool Equals(object obj)
         {

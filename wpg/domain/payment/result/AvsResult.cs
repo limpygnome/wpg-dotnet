@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment.result
+namespace Worldpay
 {
     public class AvsResult
     {
-        public AvsResult(String avsResultCode)
+        public AvsResult(string avsResultCode)
         {
             this.AvsResultCode = avsResultCode;
         }
 
-        public String AvsResultCode { get; set; }
+        public string AvsResultCode { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace wpg.domain.tokenisation
+namespace Worldpay
 {
     public class Token
     {
-        public Token(TokenDetails details, TokenInstrument instrument, String shopperId)
+        public Token(TokenDetails details, TokenInstrument instrument, string shopperId)
         {
             this.PaymentTokenId = (details != null ? details.PaymentTokenId : null);
             this.Scope = (String.IsNullOrWhiteSpace(shopperId) ? TokenScope.MERCHANT : TokenScope.SHOPPER);
@@ -14,11 +14,11 @@ namespace wpg.domain.tokenisation
             this.ShopperId = shopperId;
         }
 
-        public String PaymentTokenId { get; set; }
+        public string PaymentTokenId { get; set; }
         public TokenScope Scope { get; set; }
         public TokenDetails Details { get; set; }
         public TokenInstrument Instrument { get; set; }
-        public String ShopperId { get; set; }
+        public string ShopperId { get; set; }
 
         public override bool Equals(object obj)
         {

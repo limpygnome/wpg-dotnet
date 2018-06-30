@@ -1,10 +1,9 @@
-﻿using wpg.domain.tokenisation;
-using wpg.@internal.validation;
-using wpg.@internal.xml;
-using wpg.@internal.xml.serializer.payment.tokenisation;
-using wpg.@internal.xml.serializer.tokenisation;
+﻿using Worldpay.@internal.validation;
+using Worldpay.@internal.xml;
+using Worldpay.@internal.xml.serializer.payment.tokenisation;
+using Worldpay.@internal.xml.serializer.tokenisation;
 
-namespace wpg.request.tokenisation
+namespace Worldpay
 {
     public class FetchTokenRequest : XmlRequest<Token>
     {
@@ -30,7 +29,7 @@ namespace wpg.request.tokenisation
             this.Detokenise = detokenise;
         }
 
-        protected override void Validate(XmlBuildParams buildParams)
+        internal override void Validate(XmlBuildParams buildParams)
         {
             Assert.notEmpty(PaymentTokenId, "Payment token ID is mandatory");
             Assert.notNull(Scope, "Scope is mandatory");
@@ -41,12 +40,12 @@ namespace wpg.request.tokenisation
             }
         }
 
-        protected override void Build(XmlBuildParams buildParams)
+        internal override void Build(XmlBuildParams buildParams)
         {
             FetchTokenSerializer.decorate(buildParams, this);
         }
 
-        protected override Token Adapt(XmlResponse response)
+        internal override Token Adapt(XmlResponse response)
         {
             XmlBuilder builder = response.Builder;
             Token token = TokenSerializer.read(builder);

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using wpg.domain.tokenisation;
-namespace wpg.domain.tokenisation
+
+namespace Worldpay
 {
     public class CreateTokenDetails
     {
@@ -27,8 +27,8 @@ namespace wpg.domain.tokenisation
         }
 
         public TokenScope Scope { get; set; }
-        public String EventReference { get; set; }
-        public String Reason { get; set; }
+        public string EventReference { get; set; }
+        public string Reason { get; set; }
         public int? ShortLifeMins { get; set; }
         public DateTime? Expiry { get; set; }
 

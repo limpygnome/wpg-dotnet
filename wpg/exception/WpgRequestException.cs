@@ -1,5 +1,6 @@
 ﻿using System;
-namespace wpg.exception
+
+namespace Worldpay
 {
     public class WpgRequestException : Exception
     {

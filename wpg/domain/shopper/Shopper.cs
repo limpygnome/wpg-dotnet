@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain
+namespace Worldpay
 {
     public class Shopper
     {
         public Shopper(ShopperBrowser browser) : this(null, null, browser, null) { }
 
-        public Shopper(String email) : this(email, null, null) { }
+        public Shopper(string email) : this(email, null, null) { }
 
-        public Shopper(String email, String shopperId) : this(email, null, null, shopperId) { }
+        public Shopper(string email, string shopperId) : this(email, null, null, shopperId) { }
 
-        public Shopper(String email, String ipAddress, ShopperBrowser browser) : this(email, ipAddress, browser, null) { }
+        public Shopper(string email, string ipAddress, ShopperBrowser browser) : this(email, ipAddress, browser, null) { }
 
-        public Shopper(String email, String ipAddress, ShopperBrowser browser, String shopperId)
+        public Shopper(string email, string ipAddress, ShopperBrowser browser, string shopperId)
         {
             this.Email = email;
             this.IpAddress = ipAddress;
@@ -21,10 +20,10 @@ namespace wpg.domain
             this.ShopperId = shopperId;
         }
 
-        public String Email { get; set; }
-        public String IpAddress { get; set; }
+        public string Email { get; set; }
+        public string IpAddress { get; set; }
         public ShopperBrowser Browser { get; set; }
-        public String ShopperId { get; set; }
+        public string ShopperId { get; set; }
 
         public override bool Equals(object obj)
         {

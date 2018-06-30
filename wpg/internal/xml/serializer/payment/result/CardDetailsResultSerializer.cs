@@ -1,10 +1,6 @@
-﻿using System;
-using wpg.domain.card;
-using wpg.domain.payment.result;
-
-namespace wpg.@internal.xml.serializer.payment.result
+﻿namespace Worldpay.@internal.xml.serializer.payment.result
 {
-    public class CardDetailsResultSerializer
+    internal class CardDetailsResultSerializer
     {
 
         public static CardDetailsResult read(XmlBuilder builder)

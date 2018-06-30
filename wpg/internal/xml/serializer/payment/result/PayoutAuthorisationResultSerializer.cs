@@ -1,9 +1,6 @@
-﻿using System;
-using wpg.domain.payment.result;
-
-namespace wpg.@internal.xml.serializer.payment.result
+﻿namespace Worldpay.@internal.xml.serializer.payment.result
 {
-    public class PayoutAuthorisationResultSerializer
+    internal class PayoutAuthorisationResultSerializer
     {
 
         public static PayoutAuthorisationResult read(XmlBuilder builder)
@@ -12,7 +9,7 @@ namespace wpg.@internal.xml.serializer.payment.result
 
             if (builder.hasE("AuthorisationId"))
             {
-                String authorizationId = builder.a("id");
+                string authorizationId = builder.a("id");
                 result = new PayoutAuthorisationResult(authorizationId);
                 builder.up();
             }

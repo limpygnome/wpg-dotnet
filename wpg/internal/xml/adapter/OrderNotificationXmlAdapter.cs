@@ -1,14 +1,10 @@
 ﻿using System.Collections.Generic;
-using wpg.domain.payment;
-using wpg.domain.journal;
-using wpg.domain.notification;
-using wpg.exception;
-using wpg.@internal.xml.serializer;
-using wpg.@internal.xml.serializer.payment;
+using Worldpay.@internal.xml.serializer;
+using Worldpay.@internal.xml.serializer.payment;
 
-namespace wpg.@internal.xml.adapter
+namespace Worldpay.@internal.xml.adapter
 {
-    public class OrderNotificationXmlAdapter
+    internal class OrderNotificationXmlAdapter
     {
 
         public static OrderNotification orderNotification(XmlBuilder builder)

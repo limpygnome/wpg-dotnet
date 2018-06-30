@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace wpg.connection.auth
+namespace Worldpay
 {
     public class UserPassAuth : Auth
     {
-        public UserPassAuth(String user, String pass, String merchantCode) : this(user, pass, merchantCode, null) { }
+        public UserPassAuth(string user, string pass, string merchantCode) : this(user, pass, merchantCode, null) { }
 
-        public UserPassAuth(String user, String pass, String merchantCode, String installationId)
+        public UserPassAuth(string user, string pass, string merchantCode, string installationId)
         {
             if (String.IsNullOrWhiteSpace(installationId))
             {
@@ -34,10 +34,10 @@ namespace wpg.connection.auth
             this.InstallationId = installationId;
         }
 
-        public String User { get; set; }
-        public String Pass { get; set; }
-        public String MerchantCode { get; set; }
-        public String InstallationId { get; set; }
+        public string User { get; set; }
+        public string Pass { get; set; }
+        public string MerchantCode { get; set; }
+        public string InstallationId { get; set; }
 
     }
 }

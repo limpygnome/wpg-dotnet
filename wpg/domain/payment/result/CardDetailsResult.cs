@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using wpg.domain.card;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment.result
+namespace Worldpay
 {
     public class CardDetailsResult
     {
@@ -18,8 +16,8 @@ namespace wpg.domain.payment.result
             this.Type = type;
         }
 
-        public String MaskedCardNumber { get; private set; }
-        public String HashedCardNumber { get; private set; }
+        public string MaskedCardNumber { get; private set; }
+        public string HashedCardNumber { get; private set; }
         public long? ExpiryMonth { get; private set; }
         public long? ExpiryYear { get; private set; }
         public string IssuerCountryCode { get; private set; }

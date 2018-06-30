@@ -1,5 +1,4 @@
-﻿using System;
-namespace wpg.connection
+﻿namespace Worldpay
 {
     public enum GatewayEnvironment
     {

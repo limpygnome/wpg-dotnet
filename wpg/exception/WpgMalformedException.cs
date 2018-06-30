@@ -1,7 +1,6 @@
 ﻿using System;
-using wpg.connection.http;
 
-namespace wpg.exception
+namespace Worldpay
 {
     public class WpgMalformedException : WpgException
     {

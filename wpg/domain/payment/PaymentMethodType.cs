@@ -1,5 +1,4 @@
-﻿using System;
-namespace wpg.domain.payment
+﻿namespace Worldpay
 {
     public enum PaymentMethodType
     {

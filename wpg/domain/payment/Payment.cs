@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using wpg.domain.payment.result;
-using wpg.domain.tokenisation;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment
+namespace Worldpay
 {
     public class Payment
     {
-        public Payment(PaymentMethodType? paymentMethodType, String paymentMethodMask, Amount amount, LastEvent lastEvent, Balance balance,
+        public Payment(PaymentMethodType? paymentMethodType, string paymentMethodMask, Amount amount, LastEvent lastEvent, Balance balance,
                    CardDetailsResult cardDetailsResult, PayoutAuthorisationResult payoutAuthorisationResult,
                    ISO8583Result iso8583Result, ThreeDSecureResult threeDSecureResult, AvsResult avsResult,
                    CvcResult cvcResult, AvvResult avvResult, RiskScoreResult riskScoreResult,
@@ -30,7 +27,7 @@ namespace wpg.domain.payment
         }
 
         public PaymentMethodType? PaymentMethodType { get; private set; }
-        public String PaymentMethodMask { get; private set; }
+        public string PaymentMethodMask { get; private set; }
         public Amount Amount { get; private set; }
         public LastEvent LastEvent { get; private set; }
         public Balance Balance { get; private set; }

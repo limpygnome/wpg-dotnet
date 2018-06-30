@@ -1,9 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using wpg.connection;
-using wpg.@internal.xml.adapter;
+﻿using System.Threading.Tasks;
+using Worldpay.@internal.xml.adapter;
 
-namespace wpg.@internal.xml
+namespace Worldpay.@internal.xml
 {
     public abstract class XmlRequest<T>
     {
@@ -36,13 +34,13 @@ namespace wpg.@internal.xml
             return result;
         }
 
-        protected abstract void Validate(XmlBuildParams buildParams);
+        internal abstract void Validate(XmlBuildParams buildParams);
 
-        protected abstract void Build(XmlBuildParams buildParams);
+        internal abstract void Build(XmlBuildParams buildParams);
 
-        protected abstract T Adapt(XmlResponse response);
+        internal abstract T Adapt(XmlResponse response);
 
-        protected XmlEndpoint GetEndpoint()
+        internal XmlEndpoint GetEndpoint()
         {
             return XmlEndpoint.PAYMENTS;
         }

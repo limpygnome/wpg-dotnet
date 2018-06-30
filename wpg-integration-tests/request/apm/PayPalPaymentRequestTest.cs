@@ -1,12 +1,7 @@
-﻿using wpg.domain;
-using wpg.domain.apm;
-using wpg.domain.payment;
-using wpg.domain.redirect;
-using wpg.domain.tokenisation;
-using wpg.request.apm;
+﻿using Worldpay;
 using Xunit;
 
-namespace wpgintegrationtests.request.apm
+namespace wpgintegrationtests
 {
     public class PayPalPaymentRequestTest : BaseIntegrationTest
     {

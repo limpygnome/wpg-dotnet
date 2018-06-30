@@ -1,9 +1,6 @@
-﻿using wpg.domain.card;
-using wpg.request.tokenisation;
-
-namespace wpg.@internal.xml.serializer.tokenisation
+﻿namespace Worldpay.@internal.xml.serializer.tokenisation
 {
-    public class TokenPaymentSerializer
+    internal class TokenPaymentSerializer
     {
 
         public static void decorateOrder(XmlBuildParams buildParams, TokenPaymentRequest request)

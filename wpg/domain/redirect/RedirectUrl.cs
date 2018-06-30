@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using wpg.builder;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.redirect
+namespace Worldpay
 {
     public class RedirectUrl
     {

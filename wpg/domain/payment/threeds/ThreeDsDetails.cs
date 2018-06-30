@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using wpg.connection;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment.threeds
+namespace Worldpay
 {
     public class ThreeDsDetails
     {
-        public ThreeDsDetails(SessionContext sessionContext, String issuerURL, String paRequest)
+        public ThreeDsDetails(SessionContext sessionContext, string issuerURL, string paRequest)
         {
             this.SessionContext = sessionContext;
             this.IssuerURL = issuerURL;
@@ -14,8 +12,8 @@ namespace wpg.domain.payment.threeds
         }
 
         public SessionContext SessionContext { get; private set; }
-        public String IssuerURL { get; private set; }
-        public String PaRequest { get; private set; }
+        public string IssuerURL { get; private set; }
+        public string PaRequest { get; private set; }
 
         public override bool Equals(object obj)
         {

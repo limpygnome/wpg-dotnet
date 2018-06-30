@@ -1,13 +1,10 @@
 ﻿using System;
-using wpg.domain.payment;
-using wpg.domain.payment.result;
-using wpg.domain.tokenisation;
-using wpg.@internal.xml.serializer.payment.result;
-using wpg.@internal.xml.serializer.payment.tokenisation;
+using Worldpay.@internal.xml.serializer.payment.result;
+using Worldpay.@internal.xml.serializer.payment.tokenisation;
 
-namespace wpg.@internal.xml.serializer.payment
+namespace Worldpay.@internal.xml.serializer.payment
 {
-    public class PaymentSerializer
+    internal class PaymentSerializer
     {
 
         public static Payment read(XmlBuilder builder)

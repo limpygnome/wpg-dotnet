@@ -1,8 +1,6 @@
-﻿using wpg.request.inquiry;
-
-namespace wpg.@internal.xml.serializer
+﻿namespace Worldpay.@internal.xml.serializer
 {
-    public class OrderInquirySerializer
+    internal class OrderInquirySerializer
     {
 
         public static void decorate(XmlBuildParams buildParams, OrderInquiryRequest request)

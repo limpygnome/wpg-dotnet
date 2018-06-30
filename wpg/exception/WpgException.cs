@@ -1,10 +1,11 @@
 ﻿using System;
-namespace wpg.exception
+
+namespace Worldpay
 {
     public abstract class WpgException : Exception
     {
-        public WpgException(String message) : base(message) { }
+        public WpgException(string message) : base(message) { }
 
-        public WpgException(String message, Exception cause) : base(message, cause) { }
+        public WpgException(string message, Exception cause) : base(message, cause) { }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
-using wpg.domain.tokenisation;
-namespace wpg.@internal.xml.serializer.payment.tokenisation
+
+namespace Worldpay.@internal.xml.serializer.payment.tokenisation
 {
-    public class CreateTokenDetailsSerializer
+    internal class CreateTokenDetailsSerializer
     {
 
         public static void decorateOrder(XmlBuildParams buildParams, CreateTokenDetails createTokenDetails)

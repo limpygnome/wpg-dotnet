@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
-namespace wpg.builder
+
+namespace Worldpay
 {
     public class RandomIdentifier
     {

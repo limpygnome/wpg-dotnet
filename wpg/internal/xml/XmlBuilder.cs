@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
-using wpg.exception;
-namespace wpg.@internal.xml
+
+namespace Worldpay.@internal.xml
 {
-    public class XmlBuilder
+    internal class XmlBuilder
     {
         private XDocument document;
         private XElement current;

@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment.result
+namespace Worldpay
 {
     public class ISO8583Result
     {
-        public ISO8583Result(String code, String description)
+        public ISO8583Result(string code, string description)
         {
             this.Code = code;
             this.Description = description;
         }
 
-        public String Code { get; set; }
-        public String Description { get; set; }
+        public string Code { get; set; }
+        public string Description { get; set; }
 
         public override bool Equals(object obj)
         {

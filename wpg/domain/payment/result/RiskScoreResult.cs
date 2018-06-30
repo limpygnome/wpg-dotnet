@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment.result
+namespace Worldpay
 {
     public class RiskScoreResult
     {
-        public RiskScoreResult(String id, String provider, int? value, int? finalScore, int? totalScore, int? totalRisk, String riskGuardianId, String message, String extendedResponse)
+        public RiskScoreResult(string id, string provider, int? value, int? finalScore, int? totalScore, int? totalRisk, string riskGuardianId, string message, string extendedResponse)
         {
             this.Id = id;
             this.Provider = provider;
@@ -18,15 +17,15 @@ namespace wpg.domain.payment.result
             this.ExtendedResponse = extendedResponse;
         }
 
-        public String Id { get; set; }
-        public String Provider { get; set; }
+        public string Id { get; set; }
+        public string Provider { get; set; }
         public int? Value { get; set; }
         public int? FinalScore { get; set; }
         public int? TotalScore { get; set; }
         public int? TotalRisk { get; set; }
-        public String RiskGuardianId { get; set; }
-        public String Message { get; set; }
-        public String ExtendedResponse { get; set; }
+        public string RiskGuardianId { get; set; }
+        public string Message { get; set; }
+        public string ExtendedResponse { get; set; }
 
         public override bool Equals(object obj)
         {

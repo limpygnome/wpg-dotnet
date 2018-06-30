@@ -1,9 +1,6 @@
-﻿using System;
-using wpg.domain.payment.result;
-
-namespace wpg.@internal.xml.serializer.payment.result
+﻿namespace Worldpay.@internal.xml.serializer.payment.result
 {
-    public class AvsResultSerializer
+    internal class AvsResultSerializer
     {
 
         public static AvsResult read(XmlBuilder builder)
@@ -11,7 +8,7 @@ namespace wpg.@internal.xml.serializer.payment.result
             AvsResult result = null;
             if (builder.hasE("AVSResultCode"))
             {
-                String resultCode = builder.a("description");
+                string resultCode = builder.a("description");
                 result = new AvsResult(resultCode);
                 builder.up();
             }

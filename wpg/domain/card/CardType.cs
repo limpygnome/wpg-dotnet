@@ -1,5 +1,4 @@
-﻿using System;
-namespace wpg.domain.card
+﻿namespace Worldpay
 {
     public enum CardType
     {

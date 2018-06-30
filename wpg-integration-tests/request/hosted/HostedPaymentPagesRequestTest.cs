@@ -1,11 +1,7 @@
-﻿using wpg.builder;
-using wpg.domain;
-using wpg.domain.payment;
-using wpg.domain.redirect;
-using wpg.request.hosted;
+﻿using Worldpay;
 using Xunit;
 
-namespace wpgintegrationtests.request.hosted
+namespace wpgintegrationtests
 {
     public class HostedPaymentPagesRequestTest : BaseIntegrationTest
     {

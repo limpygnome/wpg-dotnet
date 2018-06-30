@@ -1,10 +1,8 @@
 ﻿using System;
-using wpg.domain;
-using wpg.domain.card;
 
-namespace wpg.@internal.xml.serializer
+namespace Worldpay.@internal.xml.serializer
 {
-    public class CardDetailsSerializer
+    internal class CardDetailsSerializer
     {
 
         public static void decorateOrder(XmlBuildParams buildParams, CardDetails cardDetails)

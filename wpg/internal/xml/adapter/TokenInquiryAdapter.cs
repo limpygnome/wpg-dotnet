@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using wpg.exception;
-using wpg.domain.tokenisation;
-using wpg.@internal.xml.serializer.payment.tokenisation;
+using Worldpay.@internal.xml.serializer.payment.tokenisation;
 
-namespace wpg.@internal.xml.adapter
+namespace Worldpay.@internal.xml.adapter
 {
-    public class TokenInquiryAdapter
+    internal class TokenInquiryAdapter
     {
 
         public static Token readToken(XmlResponse response)

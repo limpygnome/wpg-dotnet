@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment.result
+namespace Worldpay
 {
     public class ThreeDSecureResult
     {
-        public ThreeDSecureResult(String description, String eci, String cavv)
+        public ThreeDSecureResult(string description, string eci, string cavv)
         {
             this.Description = description;
             this.ECI = eci;
             this.CAVV = cavv;
         }
 
-        public String Description { get; set; }
-        public String ECI { get; set; }
-        public String CAVV { get; set; }
+        public string Description { get; set; }
+        public string ECI { get; set; }
+        public string CAVV { get; set; }
 
         public override bool Equals(object obj)
         {

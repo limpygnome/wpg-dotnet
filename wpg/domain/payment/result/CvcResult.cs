@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace wpg.domain.payment.result
+namespace Worldpay
 {
     public class CvcResult
     {
-        public CvcResult(String description)
+        public CvcResult(string description)
         {
             this.Description = description;
         }
 
-        public String Description { get; set; }
+        public string Description { get; set; }
 
         public override bool Equals(object obj)
         {

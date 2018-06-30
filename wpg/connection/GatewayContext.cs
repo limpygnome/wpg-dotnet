@@ -1,6 +1,4 @@
-﻿using System;
-using wpg.connection.auth;
-namespace wpg.connection
+﻿namespace Worldpay
 {
     public class GatewayContext
     {

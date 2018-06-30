@@ -1,10 +1,6 @@
-﻿using System;
-using wpg.connection;
-using wpg.domain.payment.threeds;
-
-namespace wpg.@internal.xml.serializer.payment.threeds
+﻿namespace Worldpay.@internal.xml.serializer.payment.threeds
 {
-    public class ThreeDsSerializer
+    internal class ThreeDsSerializer
     {
 
         public static ThreeDsDetails read(SessionContext sessionContext, XmlBuilder builder)

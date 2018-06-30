@@ -1,9 +1,8 @@
 ﻿using System;
-using wpg.connection;
 
-namespace wpg.@internal.xml
+namespace Worldpay.@internal.xml
 {
-    public class XmlEndpoint
+    internal class XmlEndpoint
     {
         public static readonly XmlEndpoint PAYMENTS = new XmlEndpoint(
             "paymentService",
@@ -23,7 +22,7 @@ namespace wpg.@internal.xml
             "https://secure.worldpay.com/jsp/merchant/xml/batch.html"
         );
 
-        private XmlEndpoint(String rootElement, String docTypePublicId, String docTypeSystemId, String version, String sandboxUrl, String productionUrl)
+        private XmlEndpoint(string rootElement, string docTypePublicId, string docTypeSystemId, string version, string sandboxUrl, string productionUrl)
         {
             this.RootElement = rootElement;
             this.DocTypePublicId = docTypePublicId;
@@ -33,12 +32,12 @@ namespace wpg.@internal.xml
             this.ProductionUrl = productionUrl;
         }
 
-        public String RootElement { get; private set; }
-        public String DocTypePublicId { get; private set; }
-        public String DocTypeSystemId { get; private set; }
-        public String Version { get; private set; }
-        public String SandboxUrl { get; private set; }
-        public String ProductionUrl { get; private set; }
+        public string RootElement { get; private set; }
+        public string DocTypePublicId { get; private set; }
+        public string DocTypeSystemId { get; private set; }
+        public string Version { get; private set; }
+        public string SandboxUrl { get; private set; }
+        public string ProductionUrl { get; private set; }
 
         public Uri GetUri(GatewayEnvironment environment)
         {

@@ -1,13 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using wpg.connection;
-using wpg.connection.auth;
-using wpg.domain;
-using wpg.domain.card;
-using wpg.domain.payment;
-using wpg.request.card;
 
 namespace wpgexamples
 {
