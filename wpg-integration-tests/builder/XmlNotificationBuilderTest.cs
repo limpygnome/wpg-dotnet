@@ -12,7 +12,7 @@ namespace wpgintegrationtests
         public void authorised_asExpected(string xml)
         {
             // When
-            OrderNotification orderNotification = new XmlNotificationBuilder().read(xml);
+            OrderNotification orderNotification = new XmlNotificationBuilder().Read(xml);
 
             // Then
             Assert.NotNull(orderNotification);
@@ -65,7 +65,7 @@ namespace wpgintegrationtests
         {
             // When
             XmlNotificationBuilder builder = new XmlNotificationBuilder();
-            OrderNotification orderNotification = builder.read(xml);
+            OrderNotification orderNotification = builder.Read(xml);
 
             // Then
             Assert.NotNull(orderNotification);
@@ -90,7 +90,7 @@ namespace wpgintegrationtests
         {
             // When
             XmlNotificationBuilder builder = new XmlNotificationBuilder();
-            OrderNotification orderNotification = builder.read(xml);
+            OrderNotification orderNotification = builder.Read(xml);
 
             // Then
             Assert.NotNull(orderNotification);
@@ -133,7 +133,7 @@ namespace wpgintegrationtests
         {
             // When
             XmlNotificationBuilder builder = new XmlNotificationBuilder();
-            OrderNotification orderNotification = builder.read(xml);
+            OrderNotification orderNotification = builder.Read(xml);
 
             // Then
             Assert.NotNull(orderNotification);
@@ -154,7 +154,7 @@ namespace wpgintegrationtests
         {
             // When
             XmlNotificationBuilder builder = new XmlNotificationBuilder();
-            OrderNotification orderNotification = builder.read(xml);
+            OrderNotification orderNotification = builder.Read(xml);
 
             // Then
             Assert.NotNull(orderNotification);

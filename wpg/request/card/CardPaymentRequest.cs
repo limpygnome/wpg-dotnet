@@ -1,5 +1,4 @@
-﻿using System;
-using Worldpay.@internal.validation;
+﻿using Worldpay.@internal.validation;
 using Worldpay.@internal.xml;
 using Worldpay.@internal.xml.adapter;
 using Worldpay.@internal.xml.serializer;

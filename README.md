@@ -18,11 +18,11 @@
 
 ## Features
 - Payments
-  - Cards __(includes tokenisation)__
+  - Cards _(includes tokenisation)_
   - Tokenised cards
   - 3ds authentication
   - Hosted Payment Pages
-  - PayPal __(includes tokenisation)__
+  - PayPal _(includes tokenisation)_
 - Order inquiries
 - Order notifications (XML)
 - Tokenisation

@@ -1,6 +1,6 @@
 ﻿using Worldpay.@internal.validation;
 using Worldpay.@internal.xml;
-using Worldpay.@internal.xml.serializer.payment.tokenisation;
+using Worldpay.@internal.xml.adapter;
 using Worldpay.@internal.xml.serializer.tokenisation;
 
 namespace Worldpay
@@ -47,8 +47,7 @@ namespace Worldpay
 
         internal override Token Adapt(XmlResponse response)
         {
-            XmlBuilder builder = response.Builder;
-            Token token = TokenSerializer.read(builder);
+            Token token = TokenInquiryAdapter.readToken(response);
             return token;
         }
 

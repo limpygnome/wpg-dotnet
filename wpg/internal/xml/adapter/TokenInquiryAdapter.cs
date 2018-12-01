@@ -11,7 +11,7 @@ namespace Worldpay.@internal.xml.adapter
             Token token = null;
             XmlBuilder builder = response.Builder;
 
-            if (builder.hasE("reply"))
+            if (builder.hasE("reply") && builder.hasE("token"))
             {
                 token = TokenSerializer.read(builder);
             }

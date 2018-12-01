@@ -13,12 +13,15 @@ namespace wpgintegrationtests
         // Delay between polls, for when checking a token has been deletedd, in milliseconds.
         private const int POLL_TOKEN_DELETION_DELAY = 2000;
 
+        // Unique identifier for test shopper.
+        private const string SHOPPER_ID = "shopper-dotnet-sdk";
+
         [Fact]
         public void captureCvc()
         {
             // Given
             ShopperBrowser browser = new ShopperBrowser("accepts", "user agent");
-            Shopper shopper = new Shopper("email@email.com", "1.2.3.4", browser, "shopper123");
+            Shopper shopper = new Shopper("email@email.com", "1.2.3.4", browser, getShopperId());
             Token token = setupOrder(new CreateTokenDetails(TokenScope.SHOPPER, "event_ref", "reason"), shopper);
 
             OrderDetails orderDetails = new OrderDetails("test", new Amount("EUR", 2L, 1234L));
@@ -41,7 +44,7 @@ namespace wpgintegrationtests
         {
             // Given
             ShopperBrowser browser = new ShopperBrowser("accepts", "user agent");
-            Shopper shopper = new Shopper(null, null, browser, "shopper123");
+            Shopper shopper = new Shopper(null, null, browser, getShopperId());
             Token token = setupOrder(new CreateTokenDetails(TokenScope.SHOPPER, "event_ref", "reason"), shopper);
 
             OrderDetails orderDetails = new OrderDetails("test", new Amount("EUR", 2L, 1234L));
@@ -64,7 +67,7 @@ namespace wpgintegrationtests
         {
             // Given
             ShopperBrowser browser = new ShopperBrowser("accepts", "user agent");
-            Shopper shopper = new Shopper(null, null, browser, "shopper123");
+            Shopper shopper = new Shopper(null, null, browser, getShopperId());
             Token token = setupOrder(new CreateTokenDetails(TokenScope.SHOPPER, "event_ref", "reason"), shopper);
 
             OrderDetails orderDetails = new OrderDetails("test", new Amount("EUR", 2L, 1234L));
@@ -95,7 +98,7 @@ namespace wpgintegrationtests
             CardDetails cardDetails = new CardDetails("54444444444447", 12L, 2099L, "mr override", "123", cardAddress);
 
             ShopperBrowser browser = new ShopperBrowser("accepts", "user agent");
-            Shopper shopper = new Shopper(null, null, browser, "shopper123");
+            Shopper shopper = new Shopper(null, null, browser, getShopperId());
             Token token = setupOrder(new CreateTokenDetails(TokenScope.SHOPPER, "event_ref", "reason"), shopper);
 
             OrderDetails orderDetails = new OrderDetails("test", new Amount("EUR", 2L, 1234L));
@@ -128,7 +131,7 @@ namespace wpgintegrationtests
         {
             // Given
             ShopperBrowser browser = new ShopperBrowser("accepts", "user agent");
-            Shopper shopper = new Shopper(null, null, browser, "shopper123");
+            Shopper shopper = new Shopper(null, null, browser, getShopperId());
             Token token = setupOrder(new CreateTokenDetails(TokenScope.SHOPPER, "event_ref", "reason"), shopper);
 
             OrderDetails orderDetails = new OrderDetails("test", new Amount("EUR", 2L, 1234L));
@@ -153,7 +156,7 @@ namespace wpgintegrationtests
         public void endToEnd_createShopperToken()
         {
             ShopperBrowser browser = new ShopperBrowser("accepts", "user agent");
-            Shopper shopper = new Shopper("email@email.com", "1.2.3.4", browser, "shopper123");
+            Shopper shopper = new Shopper("email@email.com", "1.2.3.4", browser, getShopperId());
 
             // Create token
             Token token = setupOrder(new CreateTokenDetails(TokenScope.SHOPPER, "event_ref", "reason"), shopper);
@@ -284,6 +287,11 @@ namespace wpgintegrationtests
             {
                 Assert.True(false, "Exception should have been thrown, stating token no longer exists");
             }
+        }
+
+        private string getShopperId()
+        {
+            return SHOPPER_ID + "_" + RandomIdentifier.generate(8);
         }
 
     }
